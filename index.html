@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+    <TITLE> ZTREE DEMO - Simple Data</TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- 需要引用的CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrapStyle/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrapStyle/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrapStyle/doublebox-bootstrap.css" />
+    <!-- <link rel="stylesheet" href="css/bootstrapStyle/bootstrapStyle.css" type="text/css"> -->
+    <link rel="stylesheet" href="css/bootstrapStyle/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="css/shuttleFrame.css" type="text/css">
+    
+    
+</HEAD>
+
+<BODY>
+    <h1 style="text-align:center;">zTree - bootstrap 风格</h1>
+    <div class="zX_box">
+    <div class="zX_transfer">
+    <div class="zX_transfer-left">
+        <div class="zX_transfer-title">
+            <h3 class="zX_transfer-title">
+                <label class="el-checkbox">
+                <span class="el-checkbox__input">
+               
+                <input type="checkbox" class="el-checkbox__original" value=""></span>
+                </label>
+            <span >源列表</span>
+        </h3>
+        </div>
+        <div class="zX_transfer-main">
+            <input type="text" autocomplete="off" placeholder="输入关键字进行过滤" class="el-input__inner">
+            <ul id="treeLeft" class="ztree"></ul>
+        </div>
+    </div>
+    <div  class="zX_transfer-center">
+        <p class="zX_transfer-center-item">
+            <div class="zX_up">
+                →
+            </div>
+        </p>
+        <p class="zX_transfer-center-item">
+            <div class="zX_up">
+                ←
+            </div>
+        </p>
+    </div>
+    <div class="zX_transfer-right">
+        <div class="zX_transfer-title">
+            <h3 class="zX_transfer-title">
+                <label class="el-checkbox">
+                <span class="el-checkbox__input">
+               
+                <input type="checkbox" class="el-checkbox__original" value=""></span>
+                </label>
+            <span >目标列表</span>
+        </h3>
+        </div>
+        <div class="zX_transfer-main">
+            <input type="text" autocomplete="off" placeholder="输入关键字进行过滤" class="el-input__inner">
+            <ul id="treeRight" class="ztree"></ul>
+        </div>
+    </div>
+    
+    </div>
+    </div>
+
+    <!-- 页面结构 -->
+    <div class="ue-container">
+        <select multiple="multiple" size="10" name="doublebox" class="demo">
+        </select>
+    </div>
+    <!-- 需要引用的JS -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.exedit.js"></script>
+    <script type="text/javascript" src="js/shuttleF.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/doublebox-bootstrap.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var demo2 = $('.demo').doublebox({
+                nonSelectedListLabel: '源列表',
+                selectedListLabel: '目标列表',
+                preserveSelectionOnMove: 'moved',
+                moveOnSelect: false,
+                nonSelectedList: [{ "roleId": "1", "roleName": "zhangsan" }, { "roleId": "2", "roleName": "lisi" }, { "roleId": "3", "roleName": "wangwu" }],
+                selectedList: [{ "roleId": "4", "roleName": "zhangsan1" }, { "roleId": "5", "roleName": "lisi1" }, { "roleId": "6", "roleName": "wangwu1" }],
+                optionValue: "roleId",
+                optionText: "roleName",
+                doubleMove: true,
+            });
+        })
+    </script>
+</BODY>
+
+</HTML>
