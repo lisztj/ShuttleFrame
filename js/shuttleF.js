@@ -289,113 +289,113 @@ var setting = {
         };
 
 var ztreeD = [{
-    id: 1,
-    pId: 0,
-    name: "[core] 基本功能 演示",
-    open: true,
-    tag: 11
+    roleId: 1,
+    // pId: 0,
+    roleName: "[core] 基本功能 演示",
+    // open: true,
+    // tag: 11
 }, {
-    id: 101,
-    pId: 1,
-    name: "最简单的树 --  标准 JSON 数据"
+        roleId: 101,
+    // pId: 1,
+    roleName: "最简单的树 --  标准 JSON 数据"
 }, {
-    id: 102,
-    pId: 1,
-    name: "最简单的树 --  简单 JSON 数据"
+        roleId: 102,
+    // pId: 1,
+    roleName: "最简单的树 --  简单 JSON 数据"
 }, {
-    id: 103,
-    pId: 1,
-    name: "不显示 连接线"
+        roleId: 103,
+    // pId: 1,
+    roleName: "不显示 连接线"
 }, {
-    id: 104,
-    pId: 1,
-    name: "不显示 节点 图标"
+        roleId: 104,
+    // pId: 1,
+    roleName: "不显示 节点 图标"
 }, {
-    id: 108,
-    pId: 1,
-    name: "异步加载 节点数据"
+        roleId: 108,
+    // pId: 1,
+    roleName: "异步加载 节点数据"
 }, {
-    id: 109,
-    pId: 1,
-    name: "用 zTree 方法 异步加载 节点数据"
+    roleId: 109,
+    // pId: 1,
+    roleName: "用 zTree 方法 异步加载 节点数据"
 }, {
-    id: 110,
-    pId: 1,
-    name: "用 zTree 方法 更新 节点数据"
+    roleId: 110,
+    // pId: 1,
+    roleName: "用 zTree 方法 更新 节点数据"
 }, {
-    id: 111,
-    pId: 1,
-    name: "单击 节点 控制"
+    roleId: 111,
+    // pId: 1,
+    roleName: "单击 节点 控制"
 }, {
-    id: 112,
-    pId: 1,
-    name: "展开 / 折叠 父节点 控制"
+    roleId: 112,
+    // pId: 1,
+    roleName: "展开 / 折叠 父节点 控制"
 }, {
-    id: 113,
-    pId: 1,
-    name: "根据 参数 查找 节点"
+    roleId: 113,
+    // pId: 1,
+    roleName: "根据 参数 查找 节点"
 }, {
-    id: 114,
-    pId: 1,
-    name: "其他 鼠标 事件监听"
+    roleId: 114,
+    // pId: 1,
+    roleName: "其他 鼠标 事件监听"
 },
 
 {
-    id: 2,
-    pId: 0,
-    name: "[excheck] 复/单选框功能 演示",
-    open: false
+    roleId: 2,
+    // pId: 0,
+    roleName: "[excheck] 复/单选框功能 演示",
+    // open: false
 }, {
-    id: 201,
-    pId: 2,
-    name: "Checkbox 勾选操作"
+    roleId: 201,
+    // pId: 2,
+    roleName: "Checkbox 勾选操作"
 }, {
-    id: 206,
-    pId: 2,
-    name: "Checkbox nocheck 演示"
+    roleId: 206,
+    // pId: 2,
+    roleName: "Checkbox nocheck 演示"
 }, {
-    id: 207,
-    pId: 2,
-    name: "Checkbox chkDisabled 演示"
+    roleId: 207,
+    // pId: 2,
+    roleName: "Checkbox chkDisabled 演示"
 }, {
-    id: 208,
-    pId: 2,
-    name: "Checkbox halfCheck 演示"
+    roleId: 208,
+    // pId: 2,
+    roleName: "Checkbox halfCheck 演示"
 }, {
-    id: 202,
-    pId: 2,
-    name: "Checkbox 勾选统计"
+    roleId: 202,
+    // pId: 2,
+    roleName: "Checkbox 勾选统计"
 }, {
-    id: 203,
-    pId: 2,
-    name: "用 zTree 方法 勾选 Checkbox"
+    roleId: 203,
+    // pId: 2,
+    roleName: "用 zTree 方法 勾选 Checkbox"
 }, {
-    id: 204,
-    pId: 2,
-    name: "Radio 勾选操作"
+    roleId: 204,
+    // pId: 2,
+    roleName: "Radio 勾选操作"
 }, {
-    id: 209,
-    pId: 2,
-    name: "Radio nocheck 演示"
+    roleId: 209,
+    // pId: 2,
+    roleName: "Radio nocheck 演示"
 }, {
-    id: 210,
-    pId: 2,
-    name: "Radio chkDisabled 演示"
+    roleId: 210,
+    // pId: 2,
+    roleName: "Radio chkDisabled 演示"
 }, {
-    id: 211,
-    pId: 2,
-    name: "Radio halfCheck 演示"
+    roleId: 211,
+    // pId: 2,
+    roleName: "Radio halfCheck 演示"
 }, {
-    id: 205,
-    pId: 2,
-    name: "用 zTree 方法 勾选 Radio"
+    roleId: 205,
+    // pId: 2,
+    roleName: "用 zTree 方法 勾选 Radio"
 },
 
 {
-    id: 3,
-    pId: 0,
-    name: "[exedit] 编辑功能 演示",
-    open: false
+    roleId: 3,
+    // pId: 0,
+    roleName: "[exedit] 编辑功能 演示",
+    // open: false
 }, {
     roleId: 301,
     // pId: 3,
