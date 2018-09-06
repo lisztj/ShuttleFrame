@@ -287,3 +287,138 @@ var setting = {
         function removeHoverDom(treeId, treeNode) {
             $("#addBtn_" + treeNode.tId).unbind().remove();
         };
+
+var ztreeD = [{
+    id: 1,
+    pId: 0,
+    name: "[core] 基本功能 演示",
+    open: true,
+    tag: 11
+}, {
+    id: 101,
+    pId: 1,
+    name: "最简单的树 --  标准 JSON 数据"
+}, {
+    id: 102,
+    pId: 1,
+    name: "最简单的树 --  简单 JSON 数据"
+}, {
+    id: 103,
+    pId: 1,
+    name: "不显示 连接线"
+}, {
+    id: 104,
+    pId: 1,
+    name: "不显示 节点 图标"
+}, {
+    id: 108,
+    pId: 1,
+    name: "异步加载 节点数据"
+}, {
+    id: 109,
+    pId: 1,
+    name: "用 zTree 方法 异步加载 节点数据"
+}, {
+    id: 110,
+    pId: 1,
+    name: "用 zTree 方法 更新 节点数据"
+}, {
+    id: 111,
+    pId: 1,
+    name: "单击 节点 控制"
+}, {
+    id: 112,
+    pId: 1,
+    name: "展开 / 折叠 父节点 控制"
+}, {
+    id: 113,
+    pId: 1,
+    name: "根据 参数 查找 节点"
+}, {
+    id: 114,
+    pId: 1,
+    name: "其他 鼠标 事件监听"
+},
+
+{
+    id: 2,
+    pId: 0,
+    name: "[excheck] 复/单选框功能 演示",
+    open: false
+}, {
+    id: 201,
+    pId: 2,
+    name: "Checkbox 勾选操作"
+}, {
+    id: 206,
+    pId: 2,
+    name: "Checkbox nocheck 演示"
+}, {
+    id: 207,
+    pId: 2,
+    name: "Checkbox chkDisabled 演示"
+}, {
+    id: 208,
+    pId: 2,
+    name: "Checkbox halfCheck 演示"
+}, {
+    id: 202,
+    pId: 2,
+    name: "Checkbox 勾选统计"
+}, {
+    id: 203,
+    pId: 2,
+    name: "用 zTree 方法 勾选 Checkbox"
+}, {
+    id: 204,
+    pId: 2,
+    name: "Radio 勾选操作"
+}, {
+    id: 209,
+    pId: 2,
+    name: "Radio nocheck 演示"
+}, {
+    id: 210,
+    pId: 2,
+    name: "Radio chkDisabled 演示"
+}, {
+    id: 211,
+    pId: 2,
+    name: "Radio halfCheck 演示"
+}, {
+    id: 205,
+    pId: 2,
+    name: "用 zTree 方法 勾选 Radio"
+},
+
+{
+    id: 3,
+    pId: 0,
+    name: "[exedit] 编辑功能 演示",
+    open: false
+}, {
+    roleId: 301,
+    // pId: 3,
+    roleName: "拖拽 节点 基本控制"
+}, {
+    roleId: 302,
+    // pId: 3,
+    roleName: "拖拽 节点 高级控制"
+}]
+        $(document).ready(function () {
+            var demo2 = $('.demo').doublebox({
+                nonSelectedListLabel: '源列表',
+                selectedListLabel: '目标列表',
+                preserveSelectionOnMove: 'moved',
+                moveOnSelect: false,
+                nonSelectedList: ztreeD
+                // [{ "roleId": "1", "roleName": "zhangsan" }, { "roleId": "2", "roleName": "lisi" }, { "roleId": "3", "roleName": "wangwu" }]
+                ,
+                selectedList: []
+                // [{ "roleId": "4", "roleName": "zhangsan1" }, { "roleId": "5", "roleName": "lisi1" }, { "roleId": "6", "roleName": "wangwu1" }]
+                ,
+                optionValue: "roleId",
+                optionText: "roleName",
+                doubleMove: true,
+            });
+        })
