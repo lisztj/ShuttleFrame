@@ -1,10 +1,10 @@
 .bootstrap-duallistbox-container .buttons {
 	width: 100%;
-	margin-bottom: -1px
+	margin-bottom: -1px;
 }
 
 .bootstrap-duallistbox-container label {
-	display: block
+	/* display: block */
 }
 
 .bootstrap-duallistbox-container .info {

@@ -27,7 +27,8 @@
             defaults, options);
         this._defaults = defaults;
         this._name = pluginName;
-        this.init()
+        
+        this.init()///初始化方法
     }
     function triggerChangeEvent(dualListbox) {
         dualListbox.element.trigger("change")
@@ -309,14 +310,15 @@
                 filter(dualListbox, 2);
             });
     }
+    
     BootstrapDualListbox.prototype = {
         init: function () {
             this.container = $("" + '<div class="bootstrap-duallistbox-container">' + 
             ' <div class="zx_box1">' + "   <label></label>" + 
-                '   <span class="info-container">' + '     <span class="info"></span>' + '   <input class="form-control" placeholder="搜索" type="text">' + ' <div class="zx_treeD form-control"><ul id="treeLeft" class="ztree"></ul></div>  ' +
+                '   <span class="info-container">' + '     <span class="info"></span>' + '   <input class="form-control zx_trInput" placeholder="搜索" type="text">' + ' <div class="zx_treeD form-control"></div>  ' +
             '     <button type="button" class="btn clear1 pull-right"></button>' + "   </span>" + 
             '   <input class="filter form-control ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="btn-box">' + '     <button type="button" class="btn db-btn move">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn moveall">' + "       <i></i>" + "       <i></i>" + "     </button>" + '     <p class="clearfix" style="margin-bottom:20px"></p>' + '     <button type="button" class="btn db-btn remove">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn removeall">' + "       <i></i>" + "       <i></i>" + "     </button>" + " </div>" + ' <div class="zx_box2">' + "   <label></label>" + '   <span class="info-container">' + '     <span class="info"></span>' + '     <button type="button" class="btn clear2 pull-right"></button>' + "   </span>" + '   <input class="filter form-control ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="settingUp-btns">' + '    <button class="btn db-btn upBtn">' + "      <i></i>" + "    </button>" + '    <button class="btn db-btn downBtn">' + "      <i></i>" + "    </button>" + " </div>" + "</div>").insertBefore(this.element);
-            
+            console.log('初始化穿梭框');
             this.elements = {
                 originalSelect: this.element,
                 box1: $(".zx_box1", this.container),
@@ -653,6 +655,7 @@
             return this.element;
         }
     };
+    
     $.fn[pluginName] = function (options) {
         var args = arguments;
         if (options === undefined || typeof options === "object") {
@@ -660,13 +663,13 @@
                 if (!$(this).is("select")) {
                     $(this).find("select").each(function (index, item) {
                         $(item).bootstrapDualListbox(options);
-                    })
+                    });
                 } else {
                     if (!$.data(this, "plugin_" + pluginName)) {
                         $.data(this, "plugin_" + pluginName, new BootstrapDualListbox(this, options));
                     }
                 }
-            })
+            });
         } else {
             if (typeof options === "string" && options[0] !== "_" && options !== "init") {
                 var returns;
@@ -679,7 +682,7 @@
                 return returns !== undefined ? returns : this;
             }
         }
-    }
+    };
 })(jQuery, window, document); (function (root, factory) {
     if (typeof exports === "object") {
         module.exports = factory(root, require("jquery"));
@@ -688,7 +691,7 @@
             define(["jquery"],
                 function (jQuery) {
                     return factory(root, jQuery);
-                })
+                });
         } else {
             factory(root, root.jQuery);
         }
@@ -702,19 +705,19 @@
                 if (options.nonSelectedList != null) {
                     for (var i in options.nonSelectedList) {
                         if (options.nonSelectedList.hasOwnProperty(i)) {
-                            items += "<option value='" + options.nonSelectedList[i][options.optionValue] + "'>" + options.nonSelectedList[i][options.optionText] + "</option>"
+                            items += "<option value='" + options.nonSelectedList[i][options.optionValue] + "'>" + options.nonSelectedList[i][options.optionText] + "</option>";
                         }
                     }
                 }
                 if (options.selectedList != null) {
                     for (var i in options.selectedList) {
                         if (options.selectedList.hasOwnProperty(i)) {
-                            items += "<option value='" + options.selectedList[i][options.optionValue] + "' selected>" + options.selectedList[i][options.optionText] + "</option>"
+                            items += "<option value='" + options.selectedList[i][options.optionValue] + "' selected>" + options.selectedList[i][options.optionText] + "</option>";
                         }
                     }
                 }
                 box.append(items);
-                box.bootstrapDualListbox("refresh")
+                box.bootstrapDualListbox("refresh");
             };
             box.getSelectedOptions = function () {
                 var items = $("#bootstrap-duallistbox-selected-list_doublebox>option").map(function () {
