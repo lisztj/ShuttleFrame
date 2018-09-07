@@ -5,7 +5,12 @@
 	   border: 1px solid #ddd;
 	   background: #fff;
    }
-
+.zx_treeD{
+    width: 100%;
+    height: 220px;
+    float: left;
+    margin: 0px 0px 10px 0px;
+}
 .zX_box{
     width: 600px;
     margin: 0 auto;

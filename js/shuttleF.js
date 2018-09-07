@@ -1,23 +1,26 @@
-var setting = {
-            view: {
-                // addHoverDom: addHoverDom,////增加
-                // removeHoverDom: removeHoverDom,////删除
-                selectedMulti: false
-            },
-            check: {////复选
-                enable: false
-            },
-            data: {
-                simpleData: {
-                    enable: true
-                }
-            },
-            edit: {///编辑
-                enable: false
-            }
-        };
 
-        var zNodes = [{
+        $(document).ready(function () {
+
+            var setting = {
+                view: {
+                    // addHoverDom: addHoverDom,////增加
+                    // removeHoverDom: removeHoverDom,////删除
+                    selectedMulti: false
+                },
+                check: {////复选
+                    enable: false
+                },
+                data: {
+                    simpleData: {
+                        enable: true
+                    }
+                },
+                edit: {///编辑
+                    enable: false
+                }
+            };
+
+            var zNodes = [{
                 id: 1,
                 pId: 0,
                 name: "[core] 基本功能 演示",
@@ -251,162 +254,162 @@ var setting = {
                 pId: 6,
                 name: "配合 radio 的隐藏"
             }
-        ];
-        var zNodesR = [];
-        $(document).ready(function() {
-            $.fn.zTree.init($("#treeLeft"), setting, zNodes);
-            $.fn.zTree.init($("#treeRight"), setting, zNodesR);
-        });
-
-        var newCount = 1;
-
-        function addHoverDom(treeId, treeNode) {
-            var sObj = $("#" + treeNode.tId + "_span");
-            if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
-            var addStr = "<span class='button add' id='addBtn_" + treeNode.tId +
-                "' title='add node' onfocus='this.blur();'></span>";
-            sObj.after(addStr);
-            var btn = $("#addBtn_" + treeNode.tId);
-            if (btn) btn.bind("click", function() {
-                var zTree = $.fn.zTree.getZTreeObj("treeLeft");
-                var zTreeRight = $.fn.zTree.getZTreeObj("treeRight");
-                zTree.addNodes(treeNode, {
-                    id: (100 + newCount),
-                    pId: treeNode.id,
-                    name: "new node" + (newCount++)
-                });
-                zTreeRight.addNodes(treeNode, {
-                    id: (100 + newCount),
-                    pId: treeNode.id,
-                    name: "new node" + (newCount++)
-                });
-                return false;
+            ];
+            var zNodesR = [];
+            $(document).ready(function () {
+                $.fn.zTree.init($("#treeLeft"), setting, zNodes);
+                $.fn.zTree.init($("#treeRight"), setting, zNodesR);
             });
-        };
 
-        function removeHoverDom(treeId, treeNode) {
-            $("#addBtn_" + treeNode.tId).unbind().remove();
-        };
+            var newCount = 1;
 
-var ztreeD = [{
-    roleId: 1,
-    // pId: 0,
-    roleName: "[core] 基本功能 演示",
-    // open: true,
-    // tag: 11
-}, {
-        roleId: 101,
-    // pId: 1,
-    roleName: "最简单的树 --  标准 JSON 数据"
-}, {
-        roleId: 102,
-    // pId: 1,
-    roleName: "最简单的树 --  简单 JSON 数据"
-}, {
-        roleId: 103,
-    // pId: 1,
-    roleName: "不显示 连接线"
-}, {
-        roleId: 104,
-    // pId: 1,
-    roleName: "不显示 节点 图标"
-}, {
-        roleId: 108,
-    // pId: 1,
-    roleName: "异步加载 节点数据"
-}, {
-    roleId: 109,
-    // pId: 1,
-    roleName: "用 zTree 方法 异步加载 节点数据"
-}, {
-    roleId: 110,
-    // pId: 1,
-    roleName: "用 zTree 方法 更新 节点数据"
-}, {
-    roleId: 111,
-    // pId: 1,
-    roleName: "单击 节点 控制"
-}, {
-    roleId: 112,
-    // pId: 1,
-    roleName: "展开 / 折叠 父节点 控制"
-}, {
-    roleId: 113,
-    // pId: 1,
-    roleName: "根据 参数 查找 节点"
-}, {
-    roleId: 114,
-    // pId: 1,
-    roleName: "其他 鼠标 事件监听"
-},
+            function addHoverDom(treeId, treeNode) {
+                var sObj = $("#" + treeNode.tId + "_span");
+                if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+                var addStr = "<span class='button add' id='addBtn_" + treeNode.tId +
+                    "' title='add node' onfocus='this.blur();'></span>";
+                sObj.after(addStr);
+                var btn = $("#addBtn_" + treeNode.tId);
+                if (btn) btn.bind("click", function () {
+                    var zTree = $.fn.zTree.getZTreeObj("treeLeft");
+                    var zTreeRight = $.fn.zTree.getZTreeObj("treeRight");
+                    zTree.addNodes(treeNode, {
+                        id: (100 + newCount),
+                        pId: treeNode.id,
+                        name: "new node" + (newCount++)
+                    });
+                    zTreeRight.addNodes(treeNode, {
+                        id: (100 + newCount),
+                        pId: treeNode.id,
+                        name: "new node" + (newCount++)
+                    });
+                    return false;
+                });
+            };
 
-{
-    roleId: 2,
-    // pId: 0,
-    roleName: "[excheck] 复/单选框功能 演示",
-    // open: false
-}, {
-    roleId: 201,
-    // pId: 2,
-    roleName: "Checkbox 勾选操作"
-}, {
-    roleId: 206,
-    // pId: 2,
-    roleName: "Checkbox nocheck 演示"
-}, {
-    roleId: 207,
-    // pId: 2,
-    roleName: "Checkbox chkDisabled 演示"
-}, {
-    roleId: 208,
-    // pId: 2,
-    roleName: "Checkbox halfCheck 演示"
-}, {
-    roleId: 202,
-    // pId: 2,
-    roleName: "Checkbox 勾选统计"
-}, {
-    roleId: 203,
-    // pId: 2,
-    roleName: "用 zTree 方法 勾选 Checkbox"
-}, {
-    roleId: 204,
-    // pId: 2,
-    roleName: "Radio 勾选操作"
-}, {
-    roleId: 209,
-    // pId: 2,
-    roleName: "Radio nocheck 演示"
-}, {
-    roleId: 210,
-    // pId: 2,
-    roleName: "Radio chkDisabled 演示"
-}, {
-    roleId: 211,
-    // pId: 2,
-    roleName: "Radio halfCheck 演示"
-}, {
-    roleId: 205,
-    // pId: 2,
-    roleName: "用 zTree 方法 勾选 Radio"
-},
+            function removeHoverDom(treeId, treeNode) {
+                $("#addBtn_" + treeNode.tId).unbind().remove();
+            };
 
-{
-    roleId: 3,
-    // pId: 0,
-    roleName: "[exedit] 编辑功能 演示",
-    // open: false
-}, {
-    roleId: 301,
-    // pId: 3,
-    roleName: "拖拽 节点 基本控制"
-}, {
-    roleId: 302,
-    // pId: 3,
-    roleName: "拖拽 节点 高级控制"
-}]
-        $(document).ready(function () {
-            var demo2 = $('.demo').doublebox({
+            var ztreeD = [{
+                roleId: 1,
+                // pId: 0,
+                roleName: "[core] 基本功能 演示",
+                // open: true,
+                // tag: 11
+            }, {
+                roleId: 101,
+                // pId: 1,
+                roleName: "最简单的树 --  标准 JSON 数据"
+            }, {
+                roleId: 102,
+                // pId: 1,
+                roleName: "最简单的树 --  简单 JSON 数据"
+            }, {
+                roleId: 103,
+                // pId: 1,
+                roleName: "不显示 连接线"
+            }, {
+                roleId: 104,
+                // pId: 1,
+                roleName: "不显示 节点 图标"
+            }, {
+                roleId: 108,
+                // pId: 1,
+                roleName: "异步加载 节点数据"
+            }, {
+                roleId: 109,
+                // pId: 1,
+                roleName: "用 zTree 方法 异步加载 节点数据"
+            }, {
+                roleId: 110,
+                // pId: 1,
+                roleName: "用 zTree 方法 更新 节点数据"
+            }, {
+                roleId: 111,
+                // pId: 1,
+                roleName: "单击 节点 控制"
+            }, {
+                roleId: 112,
+                // pId: 1,
+                roleName: "展开 / 折叠 父节点 控制"
+            }, {
+                roleId: 113,
+                // pId: 1,
+                roleName: "根据 参数 查找 节点"
+            }, {
+                roleId: 114,
+                // pId: 1,
+                roleName: "其他 鼠标 事件监听"
+            },
+
+            {
+                roleId: 2,
+                // pId: 0,
+                roleName: "[excheck] 复/单选框功能 演示",
+                // open: false
+            }, {
+                roleId: 201,
+                // pId: 2,
+                roleName: "Checkbox 勾选操作"
+            }, {
+                roleId: 206,
+                // pId: 2,
+                roleName: "Checkbox nocheck 演示"
+            }, {
+                roleId: 207,
+                // pId: 2,
+                roleName: "Checkbox chkDisabled 演示"
+            }, {
+                roleId: 208,
+                // pId: 2,
+                roleName: "Checkbox halfCheck 演示"
+            }, {
+                roleId: 202,
+                // pId: 2,
+                roleName: "Checkbox 勾选统计"
+            }, {
+                roleId: 203,
+                // pId: 2,
+                roleName: "用 zTree 方法 勾选 Checkbox"
+            }, {
+                roleId: 204,
+                // pId: 2,
+                roleName: "Radio 勾选操作"
+            }, {
+                roleId: 209,
+                // pId: 2,
+                roleName: "Radio nocheck 演示"
+            }, {
+                roleId: 210,
+                // pId: 2,
+                roleName: "Radio chkDisabled 演示"
+            }, {
+                roleId: 211,
+                // pId: 2,
+                roleName: "Radio halfCheck 演示"
+            }, {
+                roleId: 205,
+                // pId: 2,
+                roleName: "用 zTree 方法 勾选 Radio"
+            },
+
+            {
+                roleId: 3,
+                // pId: 0,
+                roleName: "[exedit] 编辑功能 演示",
+                // open: false
+            }, {
+                roleId: 301,
+                // pId: 3,
+                roleName: "拖拽 节点 基本控制"
+            }, {
+                roleId: 302,
+                // pId: 3,
+                roleName: "拖拽 节点 高级控制"
+            }];
+
+            var zxChuans = $('.zxTreea').doublebox({
                 nonSelectedListLabel: '源列表',
                 selectedListLabel: '目标列表',
                 preserveSelectionOnMove: 'moved',
@@ -421,4 +424,4 @@ var ztreeD = [{
                 optionText: "roleName",
                 doubleMove: true,
             });
-        })
+        });

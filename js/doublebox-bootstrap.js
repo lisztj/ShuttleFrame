@@ -146,7 +146,7 @@
     function clearSelections(dualListbox) {
         dualListbox.elements.select1.find("option").each(function () {
             dualListbox.element.find("option").data("_selected", false)
-        })
+        });
     }
     function move(dualListbox) {///选中
         if (dualListbox.settings.preserveSelectionOnMove === "all" && !dualListbox.settings.moveOnSelect) {
@@ -158,11 +158,11 @@
             }
         }
         ///对选中数量进行限定
-        var size = dualListbox.elements.select2.find("option").size();
-        if(size >= 9){
-            alert("最多可以选中9个标签！");
-            return;
-        }
+        // var size = dualListbox.elements.select1.find("option").size();
+        // if(size >= 9){
+        //     alert("最多可以选中9个标签！");
+        //     return;
+        // }
         dualListbox.elements.select1.find("option:selected").each(function (index, item) {
             var $item = $(item);
             if (!$item.data("filtered1")) {
@@ -185,26 +185,26 @@
         dualListbox.elements.select2.find("option:selected").each(function (index, item) {
             var $item = $(item);
             if (!$item.data("filtered2")) {
-                changeSelectionState(dualListbox, $item.data("original-index"), false)
+                changeSelectionState(dualListbox, $item.data("original-index"), false);
             }
         });
         refreshSelects(dualListbox);
         triggerChangeEvent(dualListbox);
-        sortOptions(dualListbox.elements.select1)
+        sortOptions(dualListbox.elements.select1);
     }
     function moveAll(dualListbox) {///全部选中
         if (dualListbox.settings.preserveSelectionOnMove === "all" && !dualListbox.settings.moveOnSelect) {
             saveSelections(dualListbox, 1);
-            saveSelections(dualListbox, 2)
+            saveSelections(dualListbox, 2);
         } else {
             if (dualListbox.settings.preserveSelectionOnMove === "moved" && !dualListbox.settings.moveOnSelect) {
-                saveSelections(dualListbox, 1)
+                saveSelections(dualListbox, 1);
             }
         }
         dualListbox.element.find("option").each(function (index, item) {
             var $item = $(item);
             if (!$item.data("filtered1")) {
-                $item.prop("selected", true)
+                $item.prop("selected", true);
             }
         });
         refreshSelects(dualListbox);
@@ -230,7 +230,7 @@
         });
         refreshSelects(dualListbox);
         triggerChangeEvent(dualListbox);
-            }
+        }
         
         
     }
@@ -262,77 +262,82 @@
         });
         dualListbox.element.on("bootstrapDualListbox.refresh",
             function (e, mustClearSelections) {
-                dualListbox.refresh(mustClearSelections)
+                dualListbox.refresh(mustClearSelections);
             });
         dualListbox.elements.filterClear1.on("click",
             function () {
-                dualListbox.setNonSelectedFilter("", true)
+                dualListbox.setNonSelectedFilter("", true);
             });
         dualListbox.elements.filterClear2.on("click",
             function () {
-                dualListbox.setSelectedFilter("", true)
+                dualListbox.setSelectedFilter("", true);
             });
         dualListbox.elements.moveButton.on("click",
             function () {
-                move(dualListbox)
+                move(dualListbox);
             });
         dualListbox.elements.moveAllButton.on("click",
             function () {
-                moveAll(dualListbox)
+                moveAll(dualListbox);
             });
         dualListbox.elements.removeButton.on("click",
             function () {
-                remove(dualListbox)
+                remove(dualListbox);
             });
         dualListbox.elements.removeAllButton.on("click",
             function () {
-                removeAll(dualListbox)
+                removeAll(dualListbox);
             });
         dualListbox.elements.upButton.on("click",
             function () {
-                upSort(dualListbox)
+                upSort(dualListbox);
             });
         dualListbox.elements.downButton.on("click",
             function () {
-                downSort(dualListbox)
+                downSort(dualListbox);
             });
         dualListbox.elements.filterInput1.on("change keyup",
             function () {
-                filter(dualListbox, 1)
+                filter(dualListbox, 1);
             });
         dualListbox.elements.filterInput2.on("change keyup",
             function () {
-                filter(dualListbox, 2)
+                filter(dualListbox, 2);
             });
         dualListbox.elements.filterInput2.on("change keyup",
             function () {
-                filter(dualListbox, 2)
-            })
+                filter(dualListbox, 2);
+            });
     }
     BootstrapDualListbox.prototype = {
         init: function () {
-            this.container = $("" + '<div class="bootstrap-duallistbox-container">' + ' <div class="box1">' + "   <label></label>" + '   <span class="info-container">' + '     <span class="info"></span>' + '     <button type="button" class="btn clear1 pull-right"></button>' + "   </span>" + '   <input class="filter form-control ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="btn-box">' + '     <button type="button" class="btn db-btn move">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn moveall">' + "       <i></i>" + "       <i></i>" + "     </button>" + '     <p class="clearfix" style="margin-bottom:20px"></p>' + '     <button type="button" class="btn db-btn remove">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn removeall">' + "       <i></i>" + "       <i></i>" + "     </button>" + " </div>" + ' <div class="box2">' + "   <label></label>" + '   <span class="info-container">' + '     <span class="info"></span>' + '     <button type="button" class="btn clear2 pull-right"></button>' + "   </span>" + '   <input class="filter form-control ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="settingUp-btns">' + '    <button class="btn db-btn upBtn">' + "      <i></i>" + "    </button>" + '    <button class="btn db-btn downBtn">' + "      <i></i>" + "    </button>" + " </div>" + "</div>").insertBefore(this.element);
+            this.container = $("" + '<div class="bootstrap-duallistbox-container">' + 
+            ' <div class="zx_box1">' + "   <label></label>" + 
+                '   <span class="info-container">' + '     <span class="info"></span>' + '   <input class="form-control" placeholder="搜索" type="text">' + ' <div class="zx_treeD form-control"><ul id="treeLeft" class="ztree"></ul></div>  ' +
+            '     <button type="button" class="btn clear1 pull-right"></button>' + "   </span>" + 
+            '   <input class="filter form-control ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="btn-box">' + '     <button type="button" class="btn db-btn move">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn moveall">' + "       <i></i>" + "       <i></i>" + "     </button>" + '     <p class="clearfix" style="margin-bottom:20px"></p>' + '     <button type="button" class="btn db-btn remove">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn removeall">' + "       <i></i>" + "       <i></i>" + "     </button>" + " </div>" + ' <div class="zx_box2">' + "   <label></label>" + '   <span class="info-container">' + '     <span class="info"></span>' + '     <button type="button" class="btn clear2 pull-right"></button>' + "   </span>" + '   <input class="filter form-control ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="settingUp-btns">' + '    <button class="btn db-btn upBtn">' + "      <i></i>" + "    </button>" + '    <button class="btn db-btn downBtn">' + "      <i></i>" + "    </button>" + " </div>" + "</div>").insertBefore(this.element);
+            
             this.elements = {
                 originalSelect: this.element,
-                box1: $(".box1", this.container),
-                box2: $(".box2", this.container),
-                filterInput1: $(".box1 .filter", this.container),
-                filterInput2: $(".box2 .filter", this.container),
-                filterClear1: $(".box1 .clear1", this.container),
-                filterClear2: $(".box2 .clear2", this.container),
-                label1: $(".box1 > label", this.container),
-                label2: $(".box2 > label", this.container),
-                info1: $(".box1 .info", this.container),
-                info2: $(".box2 .info", this.container),
-                select1: $(".box1 select", this.container),
-                select2: $(".box2 select", this.container),
+                box1: $(".zx_box1", this.container),
+                box2: $(".zx_box2", this.container),
+                filterInput1: $(".zx_box1 .filter", this.container),
+                filterInput2: $(".zx_box2 .filter", this.container),
+                filterClear1: $(".zx_box1 .clear1", this.container),
+                filterClear2: $(".zx_box2 .clear2", this.container),
+                label1: $(".zx_box1 > label", this.container),
+                label2: $(".zx_box2 > label", this.container),
+                info1: $(".zx_box1 .info", this.container),
+                info2: $(".zx_box2 .info", this.container),
+                select1: $(".zx_box1 select", this.container),
+                select2: $(".zx_box2 select", this.container),
                 moveButton: $(".btn-box .move", this.container),
                 removeButton: $(".btn-box .remove", this.container),
                 moveAllButton: $(".btn-box .moveall", this.container),
                 removeAllButton: $(".btn-box .removeall", this.container),
                 upButton: $(".settingUp-btns .upBtn", this.container),
                 downButton: $(".settingUp-btns .downBtn", this.container),
-                form: $($(".box1 .filter", this.container)[0].form)
+                form: $($(".zx_box1 .filter", this.container)[0].form)
             };
             this.originalSelectName = this.element.attr("name") || "";
             var select1Id = "bootstrap-duallistbox-nonselected-list_" + this.originalSelectName,
@@ -374,7 +379,7 @@
             this.settings.bootstrap2Compatible = value;
             if (value) {
                 this.container.removeClass("row").addClass("row-fluid bs2compatible");
-                this.container.find(".box1, .box2").removeClass("col-md-5");
+                this.container.find(".zx_box1, .zx_box2").removeClass("col-md-5");
                 this.container.find(".btn-box").removeClass("col-md-1");
                 this.container.find(".clear1, .clear2").removeClass("btn-default btn-xs").addClass("btn-mini");
                 this.container.find("input, select").removeClass("form-control");
@@ -382,10 +387,10 @@
                 this.container.find(".moveall > i, .move > i").removeClass("glyphicon glyphicon-arrow-right").addClass("icon-arrow-right");
                 this.container.find(".removeall > i, .remove > i").removeClass("glyphicon glyphicon-arrow-left").addClass("icon-arrow-left");
                 this.container.find(".upBtn > i").removeClass("glyphicon glyphicon-arrow-up").addClass("icon-arrow-up");
-                this.container.find(".downBtn > i").removeClass("glyphicon glyphicon-arrow-down").addClass("icon-arrow-down")
+                this.container.find(".downBtn > i").removeClass("glyphicon glyphicon-arrow-down").addClass("icon-arrow-down");
             } else {
                 this.container.removeClass("row-fluid bs2compatible").addClass("row");
-                this.container.find(".box1, .box2").addClass("col-md-5");
+                this.container.find(".zx_box1, .zx_box2").addClass("col-md-5");
                 this.container.find(".btn-box").addClass("col-md-1");
                 this.container.find(".clear1, .clear2").removeClass("btn-mini").addClass("btn-default btn-xs");
                 this.container.find("input, select").addClass("form-control");
@@ -393,66 +398,66 @@
                 this.container.find(".moveall > i, .move > i").removeClass("icon-arrow-right").addClass("glyphicon glyphicon-arrow-right");
                 this.container.find(".removeall > i, .remove > i").removeClass("icon-arrow-left").addClass("glyphicon glyphicon-arrow-left");
                 this.container.find(".upBtn > i").removeClass("icon-arrow-up").addClass("glyphicon glyphicon-arrow-up");
-                this.container.find(".downBtn > i").removeClass("icon-arrow-down").addClass("glyphicon glyphicon-arrow-down")
+                this.container.find(".downBtn > i").removeClass("icon-arrow-down").addClass("glyphicon glyphicon-arrow-down");
             }
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setFilterTextClear: function (value, refresh) {
             this.settings.filterTextClear = value;
             this.elements.filterClear1.html(value);
             this.elements.filterClear2.html(value);
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setFilterPlaceHolder: function (value, refresh) {
             this.settings.filterPlaceHolder = value;
             this.elements.filterInput1.attr("placeholder", value);
             this.elements.filterInput2.attr("placeholder", value);
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setMoveSelectedLabel: function (value, refresh) {
             this.settings.moveSelectedLabel = value;
             this.elements.moveButton.attr("title", value);
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setMoveAllLabel: function (value, refresh) {
             this.settings.moveAllLabel = value;
             this.elements.moveAllButton.attr("title", value);
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setRemoveSelectedLabel: function (value, refresh) {
             this.settings.removeSelectedLabel = value;
             this.elements.removeButton.attr("title", value);
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setRemoveAllLabel: function (value, refresh) {
             this.settings.removeAllLabel = value;
             this.elements.removeAllButton.attr("title", value);
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setMoveOnSelect: function (value, refresh) {
             if (isBuggyAndroid) {
-                value = true
+                value = true;
             }
             this.settings.moveOnSelect = value;
             if (this.settings.moveOnSelect) {
@@ -460,25 +465,25 @@
                 var self = this;
                 this.elements.select1.on("change",
                     function () {
-                        move(self)
+                        move(self);
                     });
                 this.elements.select2.on("change",
                     function () {
-                        remove(self)
+                        remove(self);
                     })
             } else {
                 this.container.removeClass("moveonselect");
                 this.elements.select1.off("change");
-                this.elements.select2.off("change")
+                this.elements.select2.off("change");
             }
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setDoubleMove: function (value, refresh) {
             if (isBuggyAndroid) {
-                value = false
+                value = false;
             }
             this.settings.doubleMove = value;
             if (this.settings.doubleMove) {
@@ -518,21 +523,21 @@
                 this.elements.label2.hide().html(value)
             }
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },///选中数据
         setNonSelectedListLabel: function (value, refresh) {
             this.settings.nonSelectedListLabel = value;
             if (value) {
-                this.elements.label1.show().html(value)
+                this.elements.label1.show().html(value);
             } else {
-                this.elements.label1.hide().html(value)
+                this.elements.label1.hide().html(value);
             }
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setHelperSelectNamePostfix: function (value, refresh) {
             this.settings.helperSelectNamePostfix = value;
@@ -540,28 +545,28 @@
                 ///第一个穿梭框
                 this.elements.select1.attr("name", this.originalSelectName + value + "1");
                 ///第二个
-                this.elements.select2.attr("name", this.originalSelectName + value + "2")
+                this.elements.select2.attr("name", this.originalSelectName + value + "2");
             } else {
                 this.elements.select1.removeAttr("name");
-                this.elements.select2.removeAttr("name")
+                this.elements.select2.removeAttr("name");
             }
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
-        setSelectOrMinimalHeight: function (value, refresh) {
+        setSelectOrMinimalHeight: function (value, refresh) {////设置高度
             this.settings.selectorMinimalHeight = value;
             var height = this.element.height();
             if (this.element.height() < value) {
-                height = value
+                height = value;
             }
             this.elements.select1.height(height);
-            this.elements.select2.height(height);
+            this.elements.select2.height(height + 267);
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setShowFilterInputs: function (value, refresh) {
             if (!value) {
@@ -569,25 +574,25 @@
                 this.setSelectedFilter("");
                 refreshSelects(this);
                 this.elements.filterInput1.hide();
-                this.elements.filterInput2.hide()
+                this.elements.filterInput2.hide();
             } else {
                 this.elements.filterInput1.show();
-                this.elements.filterInput2.show()
+                this.elements.filterInput2.show();
             }
             this.settings.showFilterInputs = value;
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setNonSelectedFilter: function (value, refresh) {
             if (this.settings.showFilterInputs) {
                 this.settings.nonSelectedFilter = value;
                 this.elements.filterInput1.val(value);
                 if (refresh) {
-                    refreshSelects(this)
+                    refreshSelects(this);
                 }
-                return this.element
+                return this.element;
             }
         },
         setSelectedFilter: function (value, refresh) {
@@ -595,57 +600,57 @@
                 this.settings.selectedFilter = value;
                 this.elements.filterInput2.val(value);
                 if (refresh) {
-                    refreshSelects(this)
+                    refreshSelects(this);
                 }
-                return this.element
+                return this.element;
             }
         },
         setInfoText: function (value, refresh) {
             this.settings.infoText = value;
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setInfoTextFiltered: function (value, refresh) {
             this.settings.infoTextFiltered = value;
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setInfoTextEmpty: function (value, refresh) {
             this.settings.infoTextEmpty = value;
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         setFilterOnValues: function (value, refresh) {
             this.settings.filterOnValues = value;
             if (refresh) {
-                refreshSelects(this)
+                refreshSelects(this);
             }
-            return this.element
+            return this.element;
         },
         getContainer: function () {
-            return this.container
+            return this.container;
         },
         refresh: function (mustClearSelections) {
             updateSelectionStates(this);
             if (!mustClearSelections) {
                 saveSelections(this, 1);
-                saveSelections(this, 2)
+                saveSelections(this, 2);
             } else {
-                clearSelections(this)
+                clearSelections(this);
             }
-            refreshSelects(this)
+            refreshSelects(this);
         },
         destroy: function () {
             this.container.remove();
             this.element.show();
             $.data(this, "plugin_" + pluginName, null);
-            return this.element
+            return this.element;
         }
     };
     $.fn[pluginName] = function (options) {
@@ -654,11 +659,11 @@
             return this.each(function () {
                 if (!$(this).is("select")) {
                     $(this).find("select").each(function (index, item) {
-                        $(item).bootstrapDualListbox(options)
+                        $(item).bootstrapDualListbox(options);
                     })
                 } else {
                     if (!$.data(this, "plugin_" + pluginName)) {
-                        $.data(this, "plugin_" + pluginName, new BootstrapDualListbox(this, options))
+                        $.data(this, "plugin_" + pluginName, new BootstrapDualListbox(this, options));
                     }
                 }
             })
@@ -668,24 +673,24 @@
                 this.each(function () {
                     var instance = $.data(this, "plugin_" + pluginName);
                     if (instance instanceof BootstrapDualListbox && typeof instance[options] === "function") {
-                        returns = instance[options].apply(instance, Array.prototype.slice.call(args, 1))
+                        returns = instance[options].apply(instance, Array.prototype.slice.call(args, 1));
                     }
                 });
-                return returns !== undefined ? returns : this
+                return returns !== undefined ? returns : this;
             }
         }
     }
 })(jQuery, window, document); (function (root, factory) {
     if (typeof exports === "object") {
-        module.exports = factory(root, require("jquery"))
+        module.exports = factory(root, require("jquery"));
     } else {
         if (typeof define === "function" && define.amd) {
             define(["jquery"],
                 function (jQuery) {
-                    return factory(root, jQuery)
+                    return factory(root, jQuery);
                 })
         } else {
-            factory(root, root.jQuery)
+            factory(root, root.jQuery);
         }
     }
 }(this,

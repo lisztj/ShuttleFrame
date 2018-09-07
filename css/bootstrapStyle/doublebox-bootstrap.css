@@ -18,7 +18,7 @@
 	font-size: 10px
 }
 
-.bootstrap-duallistbox-container .box1.filtered .clear1,.bootstrap-duallistbox-container .box2.filtered .clear2 {
+.bootstrap-duallistbox-container .zx_box1.filtered .clear1,.bootstrap-duallistbox-container .zx_box2.filtered .clear2 {
 	display: inline-block
 }
 
@@ -77,7 +77,7 @@
 }
 
 .bootstrap-duallistbox-container .btn-box {
-	margin-top: 90px;
+	margin-top: 300px;
 	padding: 0;
 	float: left
 }
@@ -85,7 +85,7 @@
 .bootstrap-duallistbox-container .settingUp-btns {
 	position: absolute;
 	right: 13px;
-	margin-top: 122px;
+	margin-top: 305px;
 	width: 40px
 }
 
@@ -133,7 +133,7 @@ option:hover {
 	padding-bottom: 12px\9
 }
 
-.box1,.box2 {
+.zx_box1,.zx_box2 {
 	float: left;
 	padding-left: 10px;
 	padding-right: 9px
