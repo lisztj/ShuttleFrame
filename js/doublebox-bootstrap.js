@@ -2,12 +2,12 @@
     var pluginName = "bootstrapDualListbox",
         defaults = {
             bootstrap2Compatible: false,
-            filterTextClear: "选择全部",
+            filterTextClear: "show all",
             filterPlaceHolder: "搜索",
             moveSelectedLabel: "选择",
-            moveAllLabel: "选择全部",
-            removeSelectedLabel: "移除选中",
-            removeAllLabel: "移除全部",
+            moveAllLabel: "全部选择",
+            removeSelectedLabel: "移除",
+            removeAllLabel: "全部移除",
             moveOnSelect: true,
             preserveSelectionOnMove: false,
             selectedListLabel: false,
@@ -148,32 +148,38 @@
             dualListbox.element.find("option").data("_selected", false)
         })
     }
-    function move(dualListbox) {
+    function move(dualListbox) {///选中
         if (dualListbox.settings.preserveSelectionOnMove === "all" && !dualListbox.settings.moveOnSelect) {
             saveSelections(dualListbox, 1);
-            saveSelections(dualListbox, 2)
+            saveSelections(dualListbox, 2);
         } else {
             if (dualListbox.settings.preserveSelectionOnMove === "moved" && !dualListbox.settings.moveOnSelect) {
-                saveSelections(dualListbox, 1)
+                saveSelections(dualListbox, 1);
             }
+        }
+        ///对选中数量进行限定
+        var size = dualListbox.elements.select2.find("option").size();
+        if(size >= 9){
+            alert("最多可以选中9个标签！");
+            return;
         }
         dualListbox.elements.select1.find("option:selected").each(function (index, item) {
             var $item = $(item);
             if (!$item.data("filtered1")) {
-                changeSelectionState(dualListbox, $item.data("original-index"), true)
+                changeSelectionState(dualListbox, $item.data("original-index"), true);
             }
         });
         refreshSelects(dualListbox);
         triggerChangeEvent(dualListbox);
-        sortOptions(dualListbox.elements.select2)
+        sortOptions(dualListbox.elements.select2);
     }
-    function remove(dualListbox) {
+    function remove(dualListbox) {////移除
         if (dualListbox.settings.preserveSelectionOnMove === "all" && !dualListbox.settings.moveOnSelect) {
             saveSelections(dualListbox, 1);
-            saveSelections(dualListbox, 2)
+            saveSelections(dualListbox, 2);
         } else {
             if (dualListbox.settings.preserveSelectionOnMove === "moved" && !dualListbox.settings.moveOnSelect) {
-                saveSelections(dualListbox, 2)
+                saveSelections(dualListbox, 2);
             }
         }
         dualListbox.elements.select2.find("option:selected").each(function (index, item) {
@@ -186,7 +192,7 @@
         triggerChangeEvent(dualListbox);
         sortOptions(dualListbox.elements.select1)
     }
-    function moveAll(dualListbox) {
+    function moveAll(dualListbox) {///全部选中
         if (dualListbox.settings.preserveSelectionOnMove === "all" && !dualListbox.settings.moveOnSelect) {
             saveSelections(dualListbox, 1);
             saveSelections(dualListbox, 2)
@@ -204,47 +210,53 @@
         refreshSelects(dualListbox);
         triggerChangeEvent(dualListbox)
     }
-    function removeAll(dualListbox) {
-        if (dualListbox.settings.preserveSelectionOnMove === "all" && !dualListbox.settings.moveOnSelect) {
+    function removeAll(dualListbox) {///全部移除
+        // $.ligerDialog.confirm('是否全部移除？',function (yes) {
+        var r=confirm("是否全部移除？")
+        if (r==true){
+            if (dualListbox.settings.preserveSelectionOnMove === "all" && !dualListbox.settings.moveOnSelect) {
             saveSelections(dualListbox, 1);
-            saveSelections(dualListbox, 2)
+            saveSelections(dualListbox, 2);
         } else {
             if (dualListbox.settings.preserveSelectionOnMove === "moved" && !dualListbox.settings.moveOnSelect) {
-                saveSelections(dualListbox, 2)
+                saveSelections(dualListbox, 2);
             }
         }
         dualListbox.element.find("option").each(function (index, item) {
             var $item = $(item);
             if (!$item.data("filtered2")) {
-                $item.prop("selected", false)
+                $item.prop("selected", false);
             }
         });
         refreshSelects(dualListbox);
-        triggerChangeEvent(dualListbox)
+        triggerChangeEvent(dualListbox);
+            }
+        
+        
     }
-    function upSort(dualListbox) {
+    function upSort(dualListbox) {///向上
         dualListbox.elements.select2.find("option:selected").each(function (index, item) {
             var $item = $(item);
             var $target = $item.prev();
-            $item.insertBefore($target)
+            $item.insertBefore($target);
         })
     }
-    function downSort(dualListbox) {
+    function downSort(dualListbox) {///向下
         dualListbox.elements.select2.find("option:selected").each(function (index, item) {
             var $item = $(item);
             var $target = $item.next();
-            $item.insertAfter($target)
+            $item.insertAfter($target);
         })
     }
-    function bindEvents(dualListbox) {
+    function bindEvents(dualListbox) {///绑定事件
         dualListbox.elements.form.submit(function (e) {
             if (dualListbox.elements.filterInput1.is(":focus")) {
                 e.preventDefault();
-                dualListbox.elements.filterInput1.focusout()
+                dualListbox.elements.filterInput1.focusout();
             } else {
                 if (dualListbox.elements.filterInput2.is(":focus")) {
                     e.preventDefault();
-                    dualListbox.elements.filterInput2.focusout()
+                    dualListbox.elements.filterInput2.focusout();
                 }
             }
         });
@@ -509,7 +521,7 @@
                 refreshSelects(this)
             }
             return this.element
-        },
+        },///选中数据
         setNonSelectedListLabel: function (value, refresh) {
             this.settings.nonSelectedListLabel = value;
             if (value) {
