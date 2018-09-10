@@ -48,19 +48,19 @@
         dualListbox.element.find("option").each(function (index, item) {
             var $item = $(item);
             if ($item.data("original-index") === original_index) {
-                $item.prop("selected", selected)
+                $item.prop("selected", selected);
             }
         })
     }
     function formatString(s, args) {
         return s.replace(/\{(\d+)\}/g,
             function (match, number) {
-                return typeof args[number] !== "undefined" ? args[number] : match
+                return typeof args[number] !== "undefined" ? args[number] : match;
             })
     }
     function refreshInfo(dualListbox) {
         if (!dualListbox.settings.infoText) {
-            return
+            return;
         }
         var visible1 = dualListbox.elements.select1.find("option").length,
             visible2 = dualListbox.elements.select2.find("option").length,
@@ -68,27 +68,27 @@
             all2 = dualListbox.selectedElements,
             content = "";
         if (all1 === 0) {
-            content = dualListbox.settings.infoTextEmpty
+            content = dualListbox.settings.infoTextEmpty;
         } else {
             if (visible1 === all1) {
-                content = formatString(dualListbox.settings.infoText, [visible1, all1])
+                content = formatString(dualListbox.settings.infoText, [visible1, all1]);
             } else {
-                content = formatString(dualListbox.settings.infoTextFiltered, [visible1, all1])
+                content = formatString(dualListbox.settings.infoTextFiltered, [visible1, all1]);
             }
         }
         dualListbox.elements.info1.html(content);
         dualListbox.elements.box1.toggleClass("filtered", !(visible1 === all1 || all1 === 0));
         if (all2 === 0) {
-            content = dualListbox.settings.infoTextEmpty
+            content = dualListbox.settings.infoTextEmpty;
         } else {
             if (visible2 === all2) {
-                content = formatString(dualListbox.settings.infoText, [visible2, all2])
+                content = formatString(dualListbox.settings.infoText, [visible2, all2]);
             } else {
-                content = formatString(dualListbox.settings.infoTextFiltered, [visible2, all2])
+                content = formatString(dualListbox.settings.infoTextFiltered, [visible2, all2]);
             }
         }
         dualListbox.elements.info2.html(content);
-        dualListbox.elements.box2.toggleClass("filtered", !(visible2 === all2 || all2 === 0))
+        dualListbox.elements.box2.toggleClass("filtered", !(visible2 === all2 || all2 === 0));
     }
     function refreshSelects(dualListbox) {
         dualListbox.selectedElements = 0;
@@ -98,55 +98,55 @@
             var $item = $(item);
             if ($item.prop("selected")) {
                 dualListbox.selectedElements++;
-                dualListbox.elements.select2.append($item.clone(true).prop("selected", $item.data("_selected")))
+                dualListbox.elements.select2.append($item.clone(true).prop("selected", $item.data("_selected")));
             } else {
-                dualListbox.elements.select1.append($item.clone(true).prop("selected", $item.data("_selected")))
+                dualListbox.elements.select1.append($item.clone(true).prop("selected", $item.data("_selected")));
             }
         });
         if (dualListbox.settings.showFilterInputs) {
             filter(dualListbox, 1);
-            filter(dualListbox, 2)
+            filter(dualListbox, 2);
         }
-        refreshInfo(dualListbox)
+        refreshInfo(dualListbox);
     }
     function filter(dualListbox, selectIndex) {
         if (!dualListbox.settings.showFilterInputs) {
-            return
+            return;
         }
         saveSelections(dualListbox, selectIndex);
         dualListbox.elements["select" + selectIndex].empty().scrollTop(0);
         var regex = new RegExp($.trim(dualListbox.elements["filterInput" + selectIndex].val()), "gi"),
             options = dualListbox.element;
         if (selectIndex === 1) {
-            options = options.find("option").not(":selected")
+            options = options.find("option").not(":selected");
         } else {
-            options = options.find("option:selected")
+            options = options.find("option:selected");
         }
         options.each(function (index, item) {
             var $item = $(item),
                 isFiltered = true;
             if (item.text.match(regex) || (dualListbox.settings.filterOnValues && $item.attr("value").match(regex))) {
                 isFiltered = false;
-                dualListbox.elements["select" + selectIndex].append($item.clone(true).prop("selected", $item.data("_selected")))
+                dualListbox.elements["select" + selectIndex].append($item.clone(true).prop("selected", $item.data("_selected")));
             }
-            dualListbox.element.find("option").eq($item.data("original-index")).data("filtered" + selectIndex, isFiltered)
+            dualListbox.element.find("option").eq($item.data("original-index")).data("filtered" + selectIndex, isFiltered);
         });
-        refreshInfo(dualListbox)
+        refreshInfo(dualListbox);
     }
     function saveSelections(dualListbox, selectIndex) {
         dualListbox.elements["select" + selectIndex].find("option").each(function (index, item) {
             var $item = $(item);
-            dualListbox.element.find("option").eq($item.data("original-index")).data("_selected", $item.prop("selected"))
+            dualListbox.element.find("option").eq($item.data("original-index")).data("_selected", $item.prop("selected"));
         })
     }
     function sortOptions(select) {
         select.find("option").sort(function (a, b) {
             return ($(a).data("original-index") > $(b).data("original-index")) ? 1 : -1
-        }).appendTo(select)
+        }).appendTo(select);
     }
     function clearSelections(dualListbox) {
         dualListbox.elements.select1.find("option").each(function () {
-            dualListbox.element.find("option").data("_selected", false)
+            dualListbox.element.find("option").data("_selected", false);
         });
     }
     function move(dualListbox) {///选中
