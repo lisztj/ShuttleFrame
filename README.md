@@ -1,5 +1,5 @@
 # zTreeShuttleFrame
-zTree穿梭框可复选
+zTree + doublebox-bootstrap 树形选择穿梭框
 
 
-![Image](zTree.gif)
+![Image](ShuttleFrame.png)

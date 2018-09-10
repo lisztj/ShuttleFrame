@@ -3,6 +3,7 @@
 
             var setting = {
                 view: {
+                    nameIsHTML: true, //允许name支持html
                     // addHoverDom: addHoverDom,////增加
                     // removeHoverDom: removeHoverDom,////删除
                     selectedMulti: false
@@ -263,6 +264,7 @@
             });
             setTimeout(function() {
                 $.fn.zTree.init($("#treeLeft"), setting, zNodes);
+                fuzzySearch('treeLeft', '#key', null, true); //初始化模糊搜索方法
                 // $(".zx_treeD").append('<ul id="treeLeft" class="ztree"></ul>');
             },500);
             var newCount = 1;
