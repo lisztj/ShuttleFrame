@@ -257,14 +257,14 @@
             ];
             var zNodesR = [];
             $(document).ready(function () {
-                $.fn.zTree.init($("#treeLeft"), setting, zNodes);
+                // $.fn.zTree.init($("#treeLeft"), setting, zNodes);
                 console.log('初始化树');
                 $.fn.zTree.init($("#treeRight"), setting, zNodesR);
             });
             setTimeout(function() {
-                // $.fn.zTree.init($("#treeLeft"), setting, zNodes);
-                $(".zx_treeD").append('<ul id="treeLeft" class="ztree"></ul>');
-            });
+                $.fn.zTree.init($("#treeLeft"), setting, zNodes);
+                // $(".zx_treeD").append('<ul id="treeLeft" class="ztree"></ul>');
+            },500);
             var newCount = 1;
 
             function addHoverDom(treeId, treeNode) {///添加树
@@ -412,7 +412,7 @@
                 // pId: 3,
                 roleName: "拖拽 节点 高级控制"
             }];
-            setTimeout(function () {
+            // setTimeout(function () {
             var zxChuans = $('.zxTreea').doublebox({
                 nonSelectedListLabel: '源列表',
                 selectedListLabel: '目标列表',
@@ -428,5 +428,5 @@
                 optionText: "roleName",
                 doubleMove: true,
             });
-            });
+            // },1000);
         });
