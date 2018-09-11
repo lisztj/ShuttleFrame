@@ -28,21 +28,21 @@
         this._defaults = defaults;
         this._name = pluginName;
         
-        this.init()///初始化方法
+        this.init();///初始化方法
     }
     function triggerChangeEvent(dualListbox) {
-        dualListbox.element.trigger("change")
+        dualListbox.element.trigger("change");
     }
     function updateSelectionStates(dualListbox) {
         dualListbox.element.find("option").each(function (index, item) {
             var $item = $(item);
             if (typeof ($item.data("original-index")) === "undefined") {
-                $item.data("original-index", dualListbox.elementCount++)
+                $item.data("original-index", dualListbox.elementCount++);
             }
             if (typeof ($item.data("_selected")) === "undefined") {
-                $item.data("_selected", false)
+                $item.data("_selected", false);
             }
-        })
+        });
     }
     function changeSelectionState(dualListbox, original_index, selected) {
         dualListbox.element.find("option").each(function (index, item) {
@@ -50,13 +50,13 @@
             if ($item.data("original-index") === original_index) {
                 $item.prop("selected", selected);
             }
-        })
+        });
     }
     function formatString(s, args) {
         return s.replace(/\{(\d+)\}/g,
             function (match, number) {
                 return typeof args[number] !== "undefined" ? args[number] : match;
-            })
+            });
     }
     function refreshInfo(dualListbox) {
         if (!dualListbox.settings.infoText) {
