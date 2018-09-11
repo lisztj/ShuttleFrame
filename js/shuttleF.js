@@ -122,10 +122,10 @@
                         return;
                     } else if (treeNode.pId == 102) {
                         ztreeD = ztreeD2;
-                        zxChuans
+                        
                     } else if (treeNode.pId == 2) {
                         ztreeD = ztreeD3;
-                        zxChuans
+                        
                     }
                 }
                 
