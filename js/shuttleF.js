@@ -1,6 +1,6 @@
 
         $(document).ready(function () {
-
+            ///ztree设置
             var setting = {
                 view: {
                     nameIsHTML: true, //允许name支持html
@@ -97,16 +97,10 @@
             ];
             
             var zNodesR = [];
-            // $(document).ready(function () {
-            //     // $.fn.zTree.init($("#treeLeft"), setting, zNodes);
-            //     console.log('初始化树');
-            //     $.fn.zTree.init($("#treeRight"), setting, zNodesR);
-            // });
             ///初始化树
             setTimeout(function() {
                 $.fn.zTree.init($("#treeLeft"), setting, zNodes);
                 fuzzySearch('treeLeft', '#key', false, true); //初始化模糊搜索方法
-                // $(".zx_treeD").append('<ul id="treeLeft" class="ztree"></ul>');
             },500);
             var newCount = 1;
             ///点击选择事件
@@ -232,46 +226,46 @@
             //queryParam1：参数
             //selectClass：select元素class属性
             //selectedDataStr：选中数据，多个以,隔开
-            function initListBox(queryParam1, selectClass, selectedDataStr) {
-                var paramData = {
-                    'testParam1': queryParam1
-                }
-                $.ajax({
-                    url: 'DataHandler.ashx',
-                    type: 'get',
-                    data: paramData,
-                    async: true,
-                    success: function (returnData) {
-                        var objs = $.parseJSON(returnData);
-                        $(objs).each(function () {
-                            var o = document.createElement("option");
-                            o.value = this['id'];
-                            o.text = this['name'];
-                            if ("undefined" != typeof (selectedDataStr) && selectedDataStr != "") {
-                                var selectedDataArray = selectedDataStr.split(',');
-                                $.each(selectedDataArray, function (i, val) {
-                                    if (o.value == val) {
-                                        o.selected = 'selected';
-                                        return false;
-                                    }
-                                });
-                            }
-                            $("." + selectClass + "")[0].options.add(o);
-                        });
-                        //渲染dualListbox
-                        $('.' + selectClass + '').bootstrapDualListbox({
-                            nonSelectedListLabel: 'Non-selected',
-                            selectedListLabel: 'Selected',
-                            preserveSelectionOnMove: 'moved',
-                            moveOnSelect: false//,
-                            //nonSelectedFilter: 'ion ([7-9]|[1][0-2])'
-                        });
-                    },
-                    error: function (e) {
-                        alert(e.msg);
-                    }
-                });
-            }
+            // function initListBox(queryParam1, selectClass, selectedDataStr) {
+            //     var paramData = {
+            //         'testParam1': queryParam1
+            //     }
+            //     $.ajax({
+            //         url: 'http://192.169.1.139:8080/api',
+            //         type: 'get',
+            //         data: paramData,
+            //         async: true,
+            //         success: function (returnData) {
+            //             var objs = $.parseJSON(returnData);
+            //             $(objs).each(function () {
+            //                 var o = document.createElement("option");
+            //                 o.value = this['id'];
+            //                 o.text = this['name'];
+            //                 if ("undefined" != typeof (selectedDataStr) && selectedDataStr != "") {
+            //                     var selectedDataArray = selectedDataStr.split(',');
+            //                     $.each(selectedDataArray, function (i, val) {
+            //                         if (o.value == val) {
+            //                             o.selected = 'selected';
+            //                             return false;
+            //                         }
+            //                     });
+            //                 }
+            //                 $("." + selectClass + "")[0].options.add(o);
+            //             });
+            //             //渲染dualListbox
+            //             $('.' + selectClass + '').bootstrapDualListbox({
+            //                 nonSelectedListLabel: 'Non-selected',
+            //                 selectedListLabel: 'Selected',
+            //                 preserveSelectionOnMove: 'moved',
+            //                 moveOnSelect: false//,
+            //                 //nonSelectedFilter: 'ion ([7-9]|[1][0-2])'
+            //             });
+            //         },
+            //         error: function (e) {
+            //             alert(e.msg);
+            //         }
+            //     });
+            // }
             ///穿梭框初始化
             var zxChuans = $('.zxTreea').doublebox({
                 nonSelectedListLabel: '源列表',
@@ -290,3 +284,13 @@
             });
             
         });
+
+
+$(function () {
+    //选项卡切换
+    $('.zx_category ul li').click(function () {
+        // indexC = $(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+        // $('.cont').eq(indexC).addClass('active').siblings().removeClass('active');
+    })
+})

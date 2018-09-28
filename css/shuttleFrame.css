@@ -115,3 +115,27 @@
     width: 100%;
 }
 
+.zx_category {
+    width: 600px;
+}
+.zx_category ul{
+    margin: 0px 0px 6px -8px;
+    padding: 0px 0px;
+    width: 720px;
+    border-bottom: 1px solid #cccccc;
+}
+.zx_category ul li {
+	display: table-cell;
+	white-space: nowrap;
+	font-size: 14px;
+	text-align: center;
+	border-bottom: 3px solid transparent;
+	cursor: pointer;
+	position: relative;
+	padding: 12px 25px;
+}
+
+.zx_category ul li.active {
+	border-bottom-color: #00a4ff;
+	color: #00a4ff;
+}
