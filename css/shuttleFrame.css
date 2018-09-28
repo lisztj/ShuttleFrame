@@ -2,8 +2,8 @@
 	   width: 50%;
 	   margin: 3% auto;
 	   padding: 20px 40px;
-	   border: 1px solid #ddd;
-	   background: #fff;
+	   /* border: 1px solid #ddd;
+	   background: #fff; */
    }
 .zx_treeD{
     width: 100%;
@@ -12,6 +12,10 @@
     overflow: scroll;
     margin: 0px 0px 10px 0px;
     padding: 0px 0px 5px 0px;
+    
+}
+.border_s{
+    border: 1px solid #e0dfdf;
 }
 .zx_trInput{
     margin: 0px 0px 5px 0px;

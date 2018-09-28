@@ -114,7 +114,7 @@
                 // showLog("[ " + getTime() + " onMouseDown ]&nbsp;&nbsp;" + (treeNode ? treeNode.name : "root"), "down");
                 console.log('treeClick', treeNode);
                 
-                if (!treeNode){
+                if (!treeNode){//判断树是否为空
                     return;
                 }else{
                     if (treeNode.pId == 1) {

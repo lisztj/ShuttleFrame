@@ -136,7 +136,13 @@ option:hover {
 .zx_box1,.zx_box2 {
 	float: left;
 	padding-left: 10px;
-	padding-right: 9px
+	padding-right: 9px;
+	background: rgb(250, 251, 251);
+    padding-top: 5px;
+    border: 1px solid #d0d0d0;
+    padding-bottom: 8px;
+    border-radius: 3px;
+    margin: 0px 0px 0px 4px;
 }
 
 .db-btn {

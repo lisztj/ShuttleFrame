@@ -3,7 +3,7 @@
         defaults = {
             bootstrap2Compatible: false,
             filterTextClear: "show all",
-            filterPlaceHolder: "搜索",
+            filterPlaceHolder: "检索",
             moveSelectedLabel: "选择",
             moveAllLabel: "全部选择",
             removeSelectedLabel: "移除",
@@ -315,9 +315,9 @@
         init: function () {
             this.container = $("" + '<div class="bootstrap-duallistbox-container">' + 
             ' <div class="zx_box1">' + "   <label></label>" + 
-                '   <span class="info-container">' + '     <span class="info"></span>' + '   <input class="form-control zx_trInput" id="key" placeholder="搜索" type="text">' + ' <div class="zx_treeD form-control"> <ul id="treeLeft" class="ztree"></ul> </div>  ' +
+                '   <span class="info-container">' + '     <span class="info"></span>' + '   <input class="form-control zx_trInput border_s" id="key" placeholder="检索" type="text">' + ' <div class="zx_treeD border_s form-control"> <ul id="treeLeft" class="ztree"></ul> </div>  ' +
             '     <button type="button" class="btn clear1 pull-right"></button>' + "   </span>" + 
-            '   <input class="filter form-control ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="btn-box">' + '     <button type="button" class="btn db-btn move">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn moveall">' + "       <i></i>" + "       <i></i>" + "     </button>" + '     <p class="clearfix" style="margin-bottom:20px"></p>' + '     <button type="button" class="btn db-btn remove">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn removeall">' + "       <i></i>" + "       <i></i>" + "     </button>" + " </div>" + ' <div class="zx_box2">' + "   <label></label>" + '   <span class="info-container">' + '     <span class="info"></span>' + '     <button type="button" class="btn clear2 pull-right"></button>' + "   </span>" + '   <input class="filter form-control ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="settingUp-btns">' + '    <button class="btn db-btn upBtn">' + "      <i></i>" + "    </button>" + '    <button class="btn db-btn downBtn">' + "      <i></i>" + "    </button>" + " </div>" + "</div>").insertBefore(this.element);
+            '   <input class="filter form-control border_s ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="btn-box">' + '     <button type="button" class="btn db-btn move">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn moveall">' + "       <i></i>" + "       <i></i>" + "     </button>" + '     <p class="clearfix" style="margin-bottom:20px"></p>' + '     <button type="button" class="btn db-btn remove">' + "       <i></i>" + "     </button>" + '     <button type="button" class="btn db-btn removeall">' + "       <i></i>" + "       <i></i>" + "     </button>" + " </div>" + ' <div class="zx_box2">' + "   <label></label>" + '   <span class="info-container">' + '     <span class="info"></span>' + '     <button type="button" class="btn clear2 pull-right"></button>' + "   </span>" + '   <input class="filter form-control ue-form" type="text">' + '   <select multiple="multiple"></select>' + " </div>" + ' <div class="settingUp-btns">' + '    <button class="btn db-btn upBtn">' + "      <i></i>" + "    </button>" + '    <button class="btn db-btn downBtn">' + "      <i></i>" + "    </button>" + " </div>" + "</div>").insertBefore(this.element);
             console.log('初始化穿梭框');
             this.elements = {
                 originalSelect: this.element,
@@ -395,7 +395,7 @@
                 this.container.find(".zx_box1, .zx_box2").addClass("col-md-5");
                 this.container.find(".btn-box").addClass("col-md-1");
                 this.container.find(".clear1, .clear2").removeClass("btn-mini").addClass("btn-default btn-xs");
-                this.container.find("input, select").addClass("form-control");
+                this.container.find("input, select").addClass("form-control border_s");
                 this.container.find(".btn").addClass("btn-default");
                 this.container.find(".moveall > i, .move > i").removeClass("icon-arrow-right").addClass("glyphicon glyphicon-arrow-right");
                 this.container.find(".removeall > i, .remove > i").removeClass("icon-arrow-left").addClass("glyphicon glyphicon-arrow-left");
