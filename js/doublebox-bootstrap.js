@@ -724,15 +724,15 @@
                     }
                 }
                 box.append(items);
-                box.bootstrapDualListbox("refresh");
+                box.bootstrapDualListbox("refresh",true);
             };
             box.getSelectedOptions = function () {
                 var items = $("#bootstrap-duallistbox-selected-list_doublebox>option").map(function () {
-                    return $(this).val()
+                    return $(this).val();
                 }).get().join(",");
-                return items
+                return items;
             };
             box.selectElement();
-            return box
+            return box;
         }
     }));

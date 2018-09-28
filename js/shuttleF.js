@@ -208,6 +208,7 @@ $(document).ready(function () {
             console.log(item.value);
         });
         if (seclectData.lengh!=0){
+            ////清空左侧穿梭框数据
             $("#bootstrap-duallistbox-nonselected-list_doublebox").empty();
         }
         setTimeout(function() {
@@ -244,38 +245,35 @@ $(document).ready(function () {
                 res.push(obj[i]);
             }
             return res;
-        }
+        };
     };
-
-    function addHoverDom(treeId, treeNode) {///添加树
-        var sObj = $("#" + treeNode.tId + "_span");
-        if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
-        var addStr = "<span class='button add' id='addBtn_" + treeNode.tId +
-            "' title='add node' onfocus='this.blur();'></span>";
-        sObj.after(addStr);
-        var btn = $("#addBtn_" + treeNode.tId);
-        if (btn) btn.bind("click", function () {
-            var zTree = $.fn.zTree.getZTreeObj("treeLeft");
-            var zTreeRight = $.fn.zTree.getZTreeObj("treeRight");
-            zTree.addNodes(treeNode, {
-                id: (100 + newCount),
-                pId: treeNode.id,
-                name: "new node" + (newCount++)
-            });
-            zTreeRight.addNodes(treeNode, {
-                id: (100 + newCount),
-                pId: treeNode.id,
-                name: "new node" + (newCount++)
-            });
-            return false;
+    
+    $(function () {
+        //选项卡切换
+        $('.zx_category ul li').click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+           var indexC = $(this).index();
+            console.log(indexC);
+            // zxChuans.doublebox('refresh', true);
+            // console.log(zxChuans.doublebox('getSelectedOptions'));
+            ////清空左侧穿梭框数据
+            // $("#bootstrap-duallistbox-nonselected-list_doublebox").empty();
+            if (indexC==0){
+                return;
+            } else if (indexC == 1){
+                ztreeD = ztreeD2;
+            } else if (indexC == 2) {
+                ztreeD = ztreeD3;
+            } else if (indexC == 3) {
+                return;
+            } else if (indexC == 4) {
+                return;
+            } 
+            
+            // $('.cont').eq(indexC).addClass('active').siblings().removeClass('active');
         });
-    };
+    });
 
-    function removeHoverDom(treeId, treeNode) {///删除树
-        $("#addBtn_" + treeNode.tId).unbind().remove();
-    };
-
-   
     ///穿梭框初始化
     var zxChuans = $('.zxTreea').doublebox({
         nonSelectedListLabel: '源列表',
@@ -290,12 +288,30 @@ $(document).ready(function () {
     });
 });
 
+function addHoverDom(treeId, treeNode) {///添加树
+    var sObj = $("#" + treeNode.tId + "_span");
+    if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+    var addStr = "<span class='button add' id='addBtn_" + treeNode.tId +
+        "' title='add node' onfocus='this.blur();'></span>";
+    sObj.after(addStr);
+    var btn = $("#addBtn_" + treeNode.tId);
+    if (btn) btn.bind("click", function () {
+        var zTree = $.fn.zTree.getZTreeObj("treeLeft");
+        var zTreeRight = $.fn.zTree.getZTreeObj("treeRight");
+        zTree.addNodes(treeNode, {
+            id: (100 + newCount),
+            pId: treeNode.id,
+            name: "new node" + (newCount++)
+        });
+        zTreeRight.addNodes(treeNode, {
+            id: (100 + newCount),
+            pId: treeNode.id,
+            name: "new node" + (newCount++)
+        });
+        return false;
+    });
+};
 
-$(function () {
-    //选项卡切换
-    $('.zx_category ul li').click(function () {
-        // indexC = $(this).index();
-        $(this).addClass('active').siblings().removeClass('active');
-        // $('.cont').eq(indexC).addClass('active').siblings().removeClass('active');
-    })
-})
+function removeHoverDom(treeId, treeNode) {///删除树
+    $("#addBtn_" + treeNode.tId).unbind().remove();
+};
