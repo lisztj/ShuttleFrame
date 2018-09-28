@@ -169,10 +169,12 @@
             if (!$item.data("filtered1")) {
                 changeSelectionState(dualListbox, $item.data("original-index"), true);
             }
+            console.log('选择', $item.context.text);
         });
         refreshSelects(dualListbox);
         triggerChangeEvent(dualListbox);
         sortOptions(dualListbox.elements.select2);
+        
     }
     function remove(dualListbox) {////移除
         if (dualListbox.settings.preserveSelectionOnMove === "all" && !dualListbox.settings.moveOnSelect) {
@@ -188,10 +190,12 @@
             if (!$item.data("filtered2")) {
                 changeSelectionState(dualListbox, $item.data("original-index"), false);
             }
+            console.log('移除', $item.context.text);
         });
         refreshSelects(dualListbox);
         triggerChangeEvent(dualListbox);
         sortOptions(dualListbox.elements.select1);
+        // console.log('移除', dualListbox.elements.select1);
     }
     function moveAll(dualListbox) {///全部选中
         if (dualListbox.settings.preserveSelectionOnMove === "all" && !dualListbox.settings.moveOnSelect) {
@@ -209,7 +213,8 @@
             }
         });
         refreshSelects(dualListbox);
-        triggerChangeEvent(dualListbox)
+        triggerChangeEvent(dualListbox);
+        console.log('全部选中', dualListbox);
     }
     function removeAll(dualListbox) {///全部移除
         // $.ligerDialog.confirm('是否全部移除？',function (yes) {
@@ -229,6 +234,7 @@
                 $item.prop("selected", false);
             }
         });
+        console.log('全部移除', dualListbox);
         refreshSelects(dualListbox);
         triggerChangeEvent(dualListbox);
         }
@@ -240,6 +246,7 @@
             var $item = $(item);
             var $target = $item.prev();
             $item.insertBefore($target);
+            console.log('向上排序', $item);
         })
     }
     function downSort(dualListbox) {///向下
