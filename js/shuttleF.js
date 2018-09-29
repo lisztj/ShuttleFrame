@@ -212,6 +212,11 @@ $(document).ready(function () {
             $("#bootstrap-duallistbox-nonselected-list_doublebox").empty();
         }
         setTimeout(function() {
+            
+            console.log(params);
+            
+            // $("#bootstrap-duallistbox-nonselected-list_doublebox").append(params);
+            
             params.forEach(function (element) {
                 var o = document.createElement("option")
                 o.value = element.roleId;
@@ -228,6 +233,7 @@ $(document).ready(function () {
                 // $("select[multiple*='multiple']")[0].options.add(o);
                 $("#bootstrap-duallistbox-nonselected-list_doublebox").append(o);
             });
+            // zxChuans.doublebox('refresh', true);
         }, 200);
        
     };
@@ -248,7 +254,7 @@ $(document).ready(function () {
         };
     };
     
-    $(function () {
+    // $(function () {
         //选项卡切换
         $('.zx_category ul li').click(function(){
             $(this).addClass('active').siblings().removeClass('active');
@@ -272,7 +278,7 @@ $(document).ready(function () {
             
             // $('.cont').eq(indexC).addClass('active').siblings().removeClass('active');
         });
-    });
+    // });
 
     ///穿梭框初始化
     var zxChuans = $('.zxTreea').doublebox({

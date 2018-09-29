@@ -34,6 +34,7 @@
         dualListbox.element.trigger("change");
     }
     function updateSelectionStates(dualListbox) {
+        console.log(dualListbox);
         dualListbox.element.find("option").each(function (index, item) {
             var $item = $(item);
             if (typeof ($item.data("original-index")) === "undefined") {
@@ -647,7 +648,9 @@
         },
         refresh: function (mustClearSelections) {
             updateSelectionStates(this);
+            
             if (!mustClearSelections) {
+                console.log(this);
                 saveSelections(this, 1);
                 saveSelections(this, 2);
             } else {
