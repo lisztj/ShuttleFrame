@@ -1,4 +1,4 @@
-# zTreeShuttleFrame
+# zTree-ShuttleFrame
 zTree + doublebox-bootstrap 树形选择穿梭框
 
 > 项目上需求的组件是这样的，树形，穿梭框可上下排序:bowtie:
