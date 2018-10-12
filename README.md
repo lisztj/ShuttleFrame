@@ -5,6 +5,6 @@ zTree + doublebox-bootstrap 树形选择穿梭框
 
 ![Image](ShuttleFrame.png)
 
-> 我模仿用zTree + doublebox-bootstrap 写了个，但是目前还有bug，和数据更新等问题
+> 找了个用zTree + doublebox-bootstrap的开源例子 写了个，但是目前还有bug，和数据更新等问题
 
 ![Image](shuttle.png)
