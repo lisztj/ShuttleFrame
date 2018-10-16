@@ -135,7 +135,7 @@
               <li id="user_list" data-tid="1007">员工7</li>
               <li id="user_list" data-tid="1008">员工8</li>
               <li id="user_list" data-tid="1009">员工9</li>
-              <li id="user_list" data-tid="1010">员工0</li>
+              <li id="user_list" data-tid="1010">员工10</li>
               <li id="user_list" data-tid="1011">员工11</li>
               <li id="user_list" data-tid="1012">员工12</li>
               <li id="user_list" data-tid="1013">员工13</li>
@@ -219,12 +219,19 @@ $(document).ready(function() {
         ////取消选中
         $(".selected_user").delegate("span", "click",
         function() {
-          console.log('取消', $(".selected_user span").parent().text())
-          // $(".selected_user span").parent().remove();////取消选中
-          $("li#user_list").each(function() { ////取消选中
-            var name = $(".selected_user span").parent().text();
-            if ($.trim($(".selected_user span").parent().text()) == name) {
-              $(".selected_user span").parents("li").remove();
+			
+		var id = $(this).parent().data("tid");
+			console.log('id', id);
+			$(".selected_user li").each(function() {////删除已选择
+            if ($(this).data("tid") == id) {
+              $(this).remove();
+            }
+		  });
+		
+          $("li#user_list").each(function() { ////去掉未选中勾
+			console.log('tid', $.trim($(this)))
+            if ($.trim($(this).data("tid")) == id) {
+              $(this).children("a").remove();
             }
           });
         });
