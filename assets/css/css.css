@@ -19,6 +19,9 @@ li{list-style-type:none;}
     display: inline-block;
     margin: 0px 6px 0px 6px!important;
 }
+.ahover{
+    border:1px solid #36A9E1!important;
+}
 .eoffice{width:860px; height:450px; margin:50px auto; border:1px solid #d9d9d9;}
 .office_tab{width:290px; float:left; height:410px; border-right:1px solid #d9d9d9;}
 .office_tab li{width:60px; min-width:0;}
@@ -39,7 +42,7 @@ li{list-style-type:none;}
 .selected_tip{color:#36A9E1;}
 .selected_tip.hover{color:#fff;}
 .selected_user{height:100px; margin-left:5px;padding: 5px 0px;}
-.selected_user li{float:left; height:30px; line-height:30px; cursor:default; padding:0 10px; border:1px solid transparent;}
+.selected_user li{float:left; height:30px; line-height:30px; cursor:default; padding:0 10px; margin: 0px 3px; border:1px solid transparent;}
 .selected_user li:hover{border:1px solid #36A9E1;}
 .selected_user li i {margin-left:5px;}
 .selected_user li .shanchu{color:#36A9E1; cursor: pointer;}

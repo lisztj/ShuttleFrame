@@ -1,299 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<meta name="keywords" content="" />
-		<meta name="description" content="" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- basic styles -->
+  
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- basic styles -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/css.css" />
+    <!-- fonts -->
+    <link rel="stylesheet" type="text/css" href="assets/css/component.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+  
+  <body>
+    <div class="eoffice">
+      <!--eoffice左侧选择部门-->
+      <div class="tabbable tabs-below office_tab">
+        <ul class="nav nav-tabs" id="myTab2" style="border-bottom:1px solid #d9d9d9; margin:0;">
+          <li class="active">
+            <a data-toggle="tab" href="#home2">按部门</a></li>
+          <li>
+            <a data-toggle="tab" href="#profile2">按角色</a></li>
+          <li>
+            <a data-toggle="tab" href="#dropdown12">按组</a></li>
+          <div id="sb-search" class="sb-search">
+            <form>
+              <input class="sb-search-input form-control" placeholder="请输入关键字检索" type="text" value="" name="search" id="search" style="border:0;">
+              <span class="sb-search-submit">
+                <i class="icon-close"></i>
+              </span>
+              <span class="sb-icon-search">
+                <i class="icon-search"></i>
+              </span>
+            </form>
+          </div>
+          <script src="assets/js/classie.js"></script>
+          <script src="assets/js/uisearch.js"></script>
+          <script>new UISearch(document.getElementById('sb-search'));</script></ul>
+        <div class="tab-content office_tabcontent">
+          <div id="home2" class="tab-pane in active">
+           
+            <!---选项卡内表格内容-->
+            <a href="#userMeun" class="collapsed zx-bari" data-toggle="collapse">
+              <i class="icon-chevron-up zx-baricon"></i>请选择部门</a>
+            <ul id="userMeun" class="collapse in">
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>市场管理部</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>财务管理部</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>人力管理部</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>行政管理部</a>
+              </li>
+            </ul>
+          </div>
+          <div id="profile2" class="tab-pane">
+           
+            <a href="#userMeun1" class="collapsed zx-bari" data-toggle="collapse">
+              <i class="icon-chevron-up zx-baricon"></i>请选择部门</a>
+            <ul id="userMeun1" class="collapse in">
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>决策者</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>管理者</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>职员</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>OA管理员</a>
+              </li>
+            </ul>
+          </div>
+          <div id="dropdown12" class="tab-pane">
+           
+            <a href="#userMeun2" class="collapsed zx-bari" data-toggle="collapse">
+              <i class="icon-chevron-up zx-baricon"></i>请选择部门</a>
+            <ul id="userMeun2" class="collapse in">
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>试用组</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>公共组</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="eoffice_sp"></span>个人组</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!---eoffice右侧选择姓名-->
+      <div class="eoffice_right">
+        <div class="eoffice_right_bg">
+          <!-- <a href="javascript:void(0)" class="op_button close_dialog" data-placement="left" title="关闭窗口">
+            <i class="fa fa-times" style="line-height:35px;"></i>
+          </a> -->
+        </div>
+        <!-- <div class="row"></div> -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="allclear fr">
+              <i class="icon-trash">清空</i></div>
+            <div class="allselect fr">
+              <i class="icon-check">全选</i></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 user_list_main">
+            <ul>
+              <li id="user_list">员工1</li>
+              <li id="user_list">员工2</li>
+              <li id="user_list">员工3</li>
+              <li id="user_list">员工4</li>
+              <li id="user_list">员工5</li>
+              <li id="user_list">员工6</li>
+              <li id="user_list">员工7</li>
+              <li id="user_list">员工8</li>
+              <li id="user_list">员工9</li>
+              <li id="user_list">员工0</li>
+              <li id="user_list">员工11</li>
+              <li id="user_list">员工12</li>
+              <li id="user_list">员工13</li>
+              <li id="user_list">员工14</li>
+              <li id="user_list">员工15</li>
+              <li id="user_list">员工16</li>
+              <li id="user_list">员工17</li>
+              <li id="user_list">员工18</li>
+              <li id="user_list">员工19</li>
+              <li id="user_list">员工10</li>
+              <li id="user_list">员工21</li>
+              <li id="user_list">员工22</li>
+              <li id="user_list">员工23</li>
+              <li id="user_list">员工24</li>
+              <li id="user_list">员工25</li>
+              <li id="user_list">员工26</li>
+              <li id="user_list">员工27</li>
+              <li id="user_list">员工28</li>
+              <li id="user_list">员工29</li>
+              <li id="user_list">员工20</li></ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 eoffice_right_bg">已选择</div></div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="selected_user"></div>
+          </div>
+        </div>
+      </div>
+      <div id="cleaner"></div>
+      <!---eoffice右侧选择姓名-->
+      <div class="eoffice_buttonpane">
+        <div class="button_position fr">
+          <a href="#" class="btn-gray fr">取消</a>
+          <a href="#" class="btn-blue fr">确定</a>
+          <div id="cleaner"></div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script>//隐藏div中的滚动条
+      $(".user_list_main").niceScroll({
+        cursoropacitymax: 0,
+      });
+      $(".selected_user").niceScroll({
+        cursoropacitymax: 0,
+      });</script>
+    <script>$(document).ready(function() {
+        //user_list指向li同时给<a>添加hover
+        $("li#user_list").mouseover(function() {
+          $(this).find(".selected_tip").addClass("hover");
+        });
+        $("li#user_list").mouseout(function() {
+          $(this).find(".selected_tip").removeClass("hover");
+        });
 
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="assets/css/css.css" />
-		<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.custom.min.css" />
-		<link rel="stylesheet" href="assets/css/jquery.gritter.css" />
+      });</script>
+    <script>$(document).ready(function() {
+        /////点击已选择加蓝色边框
+        $("li.selected_user").click(function() {
+          var word = $(this).text();
+          word = $.trim(word);
+          var has = false;
+          //alert(word);
+          $(".selected_user li").each(function() {
+            console.log($(this).text());
+            if ($(this).text() == word) {
+              has = true;
+              $(this).remove();
+            }
+          });
+          console.log('has', has);
+          if (!has) {
+            $(".selected_user").append("<li>" + word + "<span class='shanchu'><i class='icon-close'></i></span></li>");
+            $(this).prepend("<a class='selected_tip hover' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
+          } else {
+            $(this).children("a").remove();
+          }
+        });
 
-		<!-- fonts -->
-		<link rel="stylesheet" type="text/css" href="assets/css/component.css" />
-		<script src="assets/js/modernizr.custom.js"></script>
-		<script src="assets/js/ace-extra.min.js"></script>
-		
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
-<body>
-									<div class="eoffice">
-										<!--eoffice左侧选择部门-->
-										<div class="tabbable tabs-below office_tab">
-										<ul class="nav nav-tabs" id="myTab2" style="border-bottom:1px solid #d9d9d9; margin:0;">
-												<li class="active"><a data-toggle="tab" href="#home2">按部门</a></li>
-												<li><a data-toggle="tab" href="#profile2">按角色</a></li>
-												<li><a data-toggle="tab" href="#dropdown12">按组</a></li>
-												
-												<div id="sb-search" class="sb-search">
-													<form>
-														<input class="sb-search-input form-control" placeholder="请输入关键字检索" type="text" value="" name="search" id="search" style="border:0;">
-														<span class="sb-search-submit"><i class="icon-close"></i></span>
-														<span class="sb-icon-search"><i class="icon-search"></i></span>
-													</form>
-												</div>
-												<script src="assets/js/classie.js"></script>
-												<script src="assets/js/uisearch.js"></script>
-												<script>
-													new UISearch( document.getElementById( 'sb-search' ) );
-												</script>
-												
-										  </ul>
-											
-											<div class="tab-content office_tabcontent">
-												<div id="home2" class="tab-pane in active">
-													<!-- <div class="zx-tree">
-														ztree
-													</div> -->
-												<!---选项卡内表格内容-->
-												<a href="#userMeun" class="collapsed zx-bari" data-toggle="collapse" >
-												<i class="icon-chevron-up zx-baricon"></i>请选择部门</a>
-													<ul id="userMeun" class="collapse in">
-														<li><a href="#"><span class="eoffice_sp"></span>市场管理部</a></li>
-														<li><a href="#"><span class="eoffice_sp"></span>财务管理部</a></li>
-														<li><a href="#"><span class="eoffice_sp"></span>人力管理部</a></li>
-														<li><a href="#"><span class="eoffice_sp"></span>行政管理部</a></li>
-													</ul>
-												</div>
+        //传输文字并添加<a>标签
+        $("li#user_list").click(function() {
+          var word = $(this).text();
+          word = $.trim(word);
+          var has = false;
+          //alert(word);
+          $(".selected_user li").each(function() {
+            console.log($(this).text());
+            if ($(this).text() == word) {
+              has = true;
+              $(this).remove();
+            }
+          });
+          console.log('has', has);
+          if (!has) {
+            $(".selected_user").append("<li>" + word + "<span class='shanchu'><i class='icon-close'></i></span></li>");
+            $(this).prepend("<a class='selected_tip hover' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
+          } else {
+            $(this).children("a").remove();
+          }
+        });
+        ////取消选中
+        $(".selected_user").delegate("span", "click",
+        function() {
+          console.log('取消', $(".selected_user span").parent().text())
+          // $(".selected_user span").parent().remove();////取消选中
+          $("li#user_list").each(function() { ////取消选中
+            var name = $(".selected_user span").parent().text();
+            if ($.trim($(".selected_user span").parent().text()) == name) {
+              $(".selected_user span").parent().children("a").remove();
+            }
+          });
+        });
 
-												<div id="profile2" class="tab-pane">
-													<!-- <div class="zx-tree">
-														ztree2
-													</div> -->
-													<a href="#userMeun1" class="collapsed zx-bari" data-toggle="collapse" >
-												<i class="icon-chevron-up zx-baricon"></i>请选择部门</a>
-													<ul id="userMeun1" class="collapse in">
-														<li><a href="#"><span class="eoffice_sp"></span>决策者</a></li>
-														<li><a href="#"><span class="eoffice_sp"></span>管理者</a></li>
-														<li><a href="#"><span class="eoffice_sp"></span>职员</a></li>
-														<li><a href="#"><span class="eoffice_sp"></span>OA管理员</a></li>
-													</ul>
-												</div>
+        //取消选中、remove <a>标签
+        $(".selected_user").delegate("li", "click",
+        function() {
 
-												<div id="dropdown12" class="tab-pane">
-													<!-- <div class="zx-tree">
-														ztree3
-													</div> -->
-													<a href="#userMeun2" class="collapsed zx-bari" data-toggle="collapse" >
-												<i class="icon-chevron-up zx-baricon"></i>请选择部门</a>
-													<ul id="userMeun2" class="collapse in">
-														<li><a href="#"><span class="eoffice_sp"></span>试用组</a></li>
-														<li><a href="#"><span class="eoffice_sp"></span>公共组</a></li>
-														<li><a href="#"><span class="eoffice_sp"></span>个人组</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										
-										<!---eoffice右侧选择姓名-->
-										<div class="eoffice_right">
-											<div class="eoffice_right_bg">
-											<a href="javascript:void(0)" class="op_button close_dialog" data-placement="left" title="关闭窗口">
-											<i class="fa fa-times" style="line-height:35px;"></i></a>					</div>
-											<div class="row"></div>
-											<div class="row">
-												<div class="col-xs-12">
-													<div class="allclear fr"><i class="icon-trash">清空</i></div>
-													<div class="allselect fr"><i class="icon-check">全选</i></div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-xs-12 user_list_main">
-													<ul>
-													<li id="user_list">员工1</li>
-													<li id="user_list">员工2</li>
-													<li id="user_list">员工3</li>
-													<li id="user_list">员工4</li>
-													<li id="user_list">员工5</li>
-													<li id="user_list">员工6</li>
-													<li id="user_list">员工7</li>
-													<li id="user_list">员工8</li>
-													<li id="user_list">员工9</li>
-													<li id="user_list">员工0</li>
-													<li id="user_list">员工11</li>
-													<li id="user_list">员工12</li>
-													<li id="user_list">员工13</li>
-													<li id="user_list">员工14</li>
-													<li id="user_list">员工15</li>
-													<li id="user_list">员工16</li>
-													<li id="user_list">员工17</li>
-													<li id="user_list">员工18</li>
-													<li id="user_list">员工19</li>
-													<li id="user_list">员工10</li>
-													<li id="user_list">员工21</li>
-													<li id="user_list">员工22</li>
-													<li id="user_list">员工23</li>
-													<li id="user_list">员工24</li>
-													<li id="user_list">员工25</li>
-													<li id="user_list">员工26</li>
-													<li id="user_list">员工27</li>
-													<li id="user_list">员工28</li>
-													<li id="user_list">员工29</li>
-													<li id="user_list">员工20</li>
-													</ul>
-												</div>
-											</div>
-											<div class="row"><div class="col-xs-12 eoffice_right_bg">已选择</div></div>
-											<div class="row"><div class="col-xs-12"><div class="selected_user"></div></div></div>
-										</div>
-										
-										<div id="cleaner"></div>
-										<!---eoffice右侧选择姓名-->
-										<div class="eoffice_buttonpane">
-										  <div class="button_position fr">
-											  <a href="#" class="btn-gray fr">取消</a>
-											  <a href="#" class="btn-blue fr">确定</a>
-											  <div id="cleaner"></div>
-										  </div>
-										  
-										</div>
-									</div>
-									
-									
-												<script src="assets/js/jquery-1.10.2.min.js"></script>
-												<script src="assets/js/jquery.nicescroll.js"></script>
-												<script>
-													//隐藏div中的滚动条
-													$(".user_list_main").niceScroll({   
-													cursoropacitymax:0,  
-													}); 
-													$(".selected_user").niceScroll({   
-													cursoropacitymax:0,  
-													}); 
-												</script>
-												<script>
-													$(document).ready(function(){
-														//user_list指向li同时给<a>添加hover
-														$("li#user_list").mouseover(function(){
-															$(this).find(".selected_tip").addClass("hover");
-														});
-														$("li#user_list").mouseout(function(){
-															$(this).find(".selected_tip").removeClass("hover");
-														});
-													});
-												</script>
-												
-												<script>
-													$(document).ready(function(){
-													  //传输文字并添加<a>标签
-													  $("li#user_list").click(function(){
-														  var word = $(this).text();
-														  word = $.trim(word);
-														  var has = false;
-														  //alert(word);
-															  $(".selected_user li").each(function(){
-															  console.log($(this).text());
-																  if($(this).text() == word){
-																  has=true;
-																  $(this).remove();
-																}
-															  });
-														  console.log('has', has);
-														  if(!has){
-															  $(".selected_user").append ("<li>"+word+"<span class='shanchu'><i class='icon-close'></i></span></li>");
-															  $(this).prepend("<a class='selected_tip hover' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
-															  }else{
-																  $(this).children("a").remove();
-																}
-													  });
-													  ////取消选中
-														$(".selected_user").delegate("span", "click", function(){
-															console.log('取消', $(".selected_user span").parent().text())
-															// $(".selected_user span").parent().remove();////取消选中
-															
-																$("li#user_list").each(function(){////取消选中
-																	var name = $(".selected_user span").parent().text();
-		if($.trim($(".selected_user span").parent().text()) == name){
-																	$(".selected_user span").parent().children("a").remove();
-																	}
-																});
-														});
+          console.log('tag', $(this).text(), $(this));
+          // $(this).addClass("ahover");
+          //alert(name);
+        });
 
-													  //取消选中、remove <a>标签
-														  $(".selected_user").delegate("li", "click", function(){
-															// 
-															console.log('tag', $(this).text());
-															
-															//alert(name);
-																
-														  });
-													
-													  //全选、清空
-													  $(".allselect").click(function(){
-													  $(".selected_user").children("li").remove();
-													  $("li#user_list").children("a").remove();
-														$("li#user_list").each(function(){
-														$(".selected_user").append ("<li>"+$.trim($(this).text())+"<span class='shanchu'><i class='icon-close'></i></span></li>");
-														$(this).prepend("<a class='selected_tip' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
-														});
-													  });
-													  $(".allclear").click(function(){
-													  $(".selected_user").children("li").remove();
-													  $("li#user_list").children("a").remove();
-													  });
-													});
-												</script>
+        //全选、清空
+        $(".allselect").click(function() {
+          $(".selected_user").children("li").remove();
+          $("li#user_list").children("a").remove();
+          $("li#user_list").each(function() {
+            $(".selected_user").append("<li>" + $.trim($(this).text()) + "<span class='shanchu'><i class='icon-close'></i></span></li>");
+            $(this).prepend("<a class='selected_tip' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
+          });
+        });
+        $(".allclear").click(function() {
+          $(".selected_user").children("li").remove();
+          $("li#user_list").children("a").remove();
+        });
+      });</script>
+    <!-- <![endif]-->
+    <!--[if IE]>
+      <script type="text/javascript">window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");</script>
+    <![endif]-->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- //自动补全 -->
+    <script src="assets/js/typeahead-bs2.min.js"></script>
+    <script src="assets/js/jquery-ui-1.10.3.full.min.js"></script>
+    <!-- page specific plugin scripts -->
+    <!-- ace scripts -->
+    <script type="text/javascript">jQuery(function($) {
 
+        ////自动填充搜索custom autocomplete (category selection)
+        $.widget("custom.catcomplete", $.ui.autocomplete, {
+          _renderMenu: function(ul, items) {
+            var that = this,
+            currentCategory = "";
+            $.each(items,
+            function(index, item) {
+              if (item.category != currentCategory) {
+                ul.append("<li class='ui-autocomplete-category'>" + item.category + "</li>");
+                currentCategory = item.category;
+              }
+              that._renderItemData(ul, item);
+            });
+          }
+        });
+		////自动填充搜索---假数据
+        var data = [{
+          label: "财务部",
+          category: "部门"
+        },
+        {
+          label: "andreas",
+          category: "部门"
+        },
+        {
+          label: "antal",
+          category: "部门"
+        },
+        {
+          label: "annhhx10",
+          category: "角色"
+        },
+        {
+          label: "annk K12",
+          category: "角色"
+        },
+        {
+          label: "annttop C13",
+          category: "角色"
+        },
+        {
+          label: "anders andersson",
+          category: "组"
+        },
+        {
+          label: "andreas andersson",
+          category: "组"
+        },
+        {
+          label: "andreas johnson",
+          category: "组"
+        }];
+        $("#search").catcomplete({
+          delay: 0,
+          source: data
+        });
 
+      });</script>
+  </body>
 
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
-</script>
-<![endif]-->
-
-	
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/typeahead-bs2.min.js"></script>
-		<script src="assets/js/jquery-ui-1.10.3.full.min.js"></script>
-		<!-- page specific plugin scripts -->
-		<!-- ace scripts -->
-
-		<script src="assets/js/ace-elements.min.js"></script>
-		<script src="assets/js/ace.min.js"></script>
-		
-		<script type="text/javascript">
-			jQuery(function($) {
-			
-				//custom autocomplete (category selection)
-				$.widget( "custom.catcomplete", $.ui.autocomplete, {
-					_renderMenu: function( ul, items ) {
-						var that = this,
-						currentCategory = "";
-						$.each( items, function( index, item ) {
-							if ( item.category != currentCategory ) {
-								ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
-								currentCategory = item.category;
-							}
-							that._renderItemData( ul, item );
-						});
-					}
-				});
-				
-				 var data = [
-					{ label: "财务部", category: "部门" },
-					{ label: "andreas", category: "部门" },
-					{ label: "antal", category: "部门" },
-					{ label: "annhhx10", category: "角色" },
-					{ label: "annk K12", category: "角色" },
-					{ label: "annttop C13", category: "角色" },
-					{ label: "anders andersson", category: "组" },
-					{ label: "andreas andersson", category: "组" },
-					{ label: "andreas johnson", category: "组" }
-				];
-				$( "#search" ).catcomplete({
-					delay: 0,
-					source: data
-				});
-				
-				
-				});
-		</script>
-</body>
 </html>
