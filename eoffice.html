@@ -112,11 +112,9 @@
       <!---eoffice右侧选择姓名-->
       <div class="eoffice_right">
         <div class="eoffice_right_bg">
-          <!-- <a href="javascript:void(0)" class="op_button close_dialog" data-placement="left" title="关闭窗口">
-            <i class="fa fa-times" style="line-height:35px;"></i>
-          </a> -->
+          
         </div>
-        <!-- <div class="row"></div> -->
+       
         <div class="row">
           <div class="col-xs-12">
             <div class="allclear fr">
@@ -146,18 +144,7 @@
               <li id="user_list">员工16</li>
               <li id="user_list">员工17</li>
               <li id="user_list">员工18</li>
-              <li id="user_list">员工19</li>
-              <li id="user_list">员工10</li>
-              <li id="user_list">员工21</li>
-              <li id="user_list">员工22</li>
-              <li id="user_list">员工23</li>
-              <li id="user_list">员工24</li>
-              <li id="user_list">员工25</li>
-              <li id="user_list">员工26</li>
-              <li id="user_list">员工27</li>
-              <li id="user_list">员工28</li>
-              <li id="user_list">员工29</li>
-              <li id="user_list">员工20</li></ul>
+              </ul>
           </div>
         </div>
         <div class="row">
@@ -199,24 +186,22 @@
       });</script>
     <script>$(document).ready(function() {
         /////点击已选择加蓝色边框
-        $("li.selected_user").click(function() {
+        $("li#selected_list").click(function() {
           var word = $(this).text();
           word = $.trim(word);
-          var has = false;
+          var hass = false;
           //alert(word);
-          $(".selected_user li").each(function() {
+          $(this).each(function() {
             console.log($(this).text());
             if ($(this).text() == word) {
-              has = true;
-              $(this).remove();
+              hass = true;
             }
           });
-          console.log('has', has);
-          if (!has) {
-            $(".selected_user").append("<li>" + word + "<span class='shanchu'><i class='icon-close'></i></span></li>");
-            $(this).prepend("<a class='selected_tip hover' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
+        //   console.log('has', has);
+          if (!hass) {
+            $(this).addClass("ahover");
           } else {
-            $(this).children("a").remove();
+             $(this).removeClass("ahover");
           }
         });
 
@@ -235,7 +220,7 @@
           });
           console.log('has', has);
           if (!has) {
-            $(".selected_user").append("<li>" + word + "<span class='shanchu'><i class='icon-close'></i></span></li>");
+            $(".selected_user").append("<li id='selected_list'>" + word + "<span class='shanchu'><i class='icon-close'></i></span></li>");
             $(this).prepend("<a class='selected_tip hover' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
           } else {
             $(this).children("a").remove();
@@ -257,10 +242,11 @@
         //取消选中、remove <a>标签
         $(".selected_user").delegate("li", "click",
         function() {
-
-          console.log('tag', $(this).text(), $(this));
-          // $(this).addClass("ahover");
-          //alert(name);
+          if ($(this).hasClass("ahover")==false) {
+            $(this).addClass("ahover");
+          } else {
+             $(this).removeClass("ahover");
+          }
         });
 
         //全选、清空
