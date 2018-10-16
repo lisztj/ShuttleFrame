@@ -160,7 +160,7 @@
       <div class="eoffice_buttonpane">
         <div class="button_position fr">
           <a href="#" class="btn-gray fr">取消</a>
-          <a href="#" class="btn-blue fr">确定</a>
+          <a href="#" id="zx-post" class="btn-blue fr">确定</a>
           <div id="cleaner"></div>
         </div>
       </div>
@@ -261,7 +261,13 @@
         $(".allclear").click(function() {
           $(".selected_user").children("li").remove();
           $("li#user_list").children("a").remove();
-        });
+		});
+		
+		////提交按钮
+		$("#zx-post").click(function () {
+			console.log('已选择:',$(".selected_user span").parent());
+			console.info('已选择:',$(".selected_user span").parent().text())
+		});
       });</script>
     <!-- <![endif]-->
     <!--[if IE]>
