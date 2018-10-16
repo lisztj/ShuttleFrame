@@ -229,7 +229,7 @@ $(document).ready(function() {
 		  });
 		
           $("li#user_list").each(function() { ////去掉未选中勾
-			console.log('tid', $.trim($(this)))
+			// console.log('tid', $.trim($(this)))
             if ($.trim($(this).data("tid")) == id) {
               $(this).children("a").remove();
             }
