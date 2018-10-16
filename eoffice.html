@@ -126,24 +126,24 @@
         <div class="row">
           <div class="col-xs-12 user_list_main">
             <ul>
-              <li id="user_list">员工1</li>
-              <li id="user_list">员工2</li>
-              <li id="user_list">员工3</li>
-              <li id="user_list">员工4</li>
-              <li id="user_list">员工5</li>
-              <li id="user_list">员工6</li>
-              <li id="user_list">员工7</li>
-              <li id="user_list">员工8</li>
-              <li id="user_list">员工9</li>
-              <li id="user_list">员工0</li>
-              <li id="user_list">员工11</li>
-              <li id="user_list">员工12</li>
-              <li id="user_list">员工13</li>
-              <li id="user_list">员工14</li>
-              <li id="user_list">员工15</li>
-              <li id="user_list">员工16</li>
-              <li id="user_list">员工17</li>
-              <li id="user_list">员工18</li>
+              <li id="user_list" data-tid="1001">员工1</li>
+              <li id="user_list" data-tid="1002">员工2</li>
+              <li id="user_list" data-tid="1003">员工3</li>
+              <li id="user_list" data-tid="1004">员工4</li>
+              <li id="user_list" data-tid="1005">员工5</li>
+              <li id="user_list" data-tid="1006">员工6</li>
+              <li id="user_list" data-tid="1007">员工7</li>
+              <li id="user_list" data-tid="1008">员工8</li>
+              <li id="user_list" data-tid="1009">员工9</li>
+              <li id="user_list" data-tid="1010">员工0</li>
+              <li id="user_list" data-tid="1011">员工11</li>
+              <li id="user_list" data-tid="1012">员工12</li>
+              <li id="user_list" data-tid="1013">员工13</li>
+              <li id="user_list" data-tid="1014">员工14</li>
+              <li id="user_list" data-tid="1015">员工15</li>
+              <li id="user_list" data-tid="1016">员工16</li>
+              <li id="user_list" data-tid="1017">员工17</li>
+              <li id="user_list" data-tid="1018">员工18</li>
               </ul>
           </div>
         </div>
@@ -184,24 +184,26 @@
         });
 
       });</script>
-    <script>$(document).ready(function() {
+<script>
+$(document).ready(function() {
         
         //传输文字并添加<a>标签
         $("li#user_list").click(function() {
           var word = $(this).text();
           word = $.trim(word);
           var has = false;
-          //alert(word);
+		  //alert(word);
+		  console.log($(this).data("tid"));
           $(".selected_user li").each(function() {
-            console.log($(this).text());
+            
             if ($(this).text() == word) {
               has = true;
               $(this).remove();
             }
           });
-          console.log('has', has);
+        //   console.log('has', has);
           if (!has) {
-            $(".selected_user").append("<li id='selected_list'>" + word + "<span class='shanchu'><i class='icon-close'></i></span></li>");
+            $(".selected_user").append("<li id='selected_list'"+ "data-tid=" + "'" + $(this).data('tid') + "'" + " >" + word + "<span class='shanchu'><i class='icon-close'></i></span></li>");
             $(this).prepend("<a class='selected_tip hover' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
           } else {
             $(this).children("a").remove();
@@ -223,6 +225,7 @@
         /////点击已选择加蓝色边框 //取消选中、remove <a>标签
         $(".selected_user").delegate("li", "click",
         function() {
+			console.log('选中',$(this).text());
           if ($(this).hasClass("ahover")==false) {
             $(this).addClass("ahover");
           } else {
