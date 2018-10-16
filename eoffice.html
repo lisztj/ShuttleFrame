@@ -186,7 +186,8 @@
       });</script>
 <script>
 $(document).ready(function() {
-        
+		var selectedD=[];/////已选择数组
+		var selectedId=[];////已选择id数组
         //传输文字并添加<a>标签
         $("li#user_list").click(function() {
           var word = $(this).text();
@@ -194,6 +195,12 @@ $(document).ready(function() {
           var has = false;
 		  //alert(word);
 		  console.log($(this).data("tid"));
+			selectedId.push($(this).data("tid"));
+			selectedD.push({
+				id:$(this).data("tid"),
+				text:word
+			})
+
           $(".selected_user li").each(function() {
             
             if ($(this).text() == word) {
@@ -249,8 +256,10 @@ $(document).ready(function() {
 		
 		////提交按钮
 		$("#zx-post").click(function () {
-			console.log('已选择:',$(".selected_user span").parent());
-			console.info('已选择:',$(".selected_user span").parent().text())
+			console.log('已选择:',selectedD);
+			// console.info('已选择:',$(".selected_user span").parent().text())
+			
+			alert(selectedId);
 		});
       });</script>
     <!-- <![endif]-->
