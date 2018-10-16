@@ -185,26 +185,7 @@
 
       });</script>
     <script>$(document).ready(function() {
-        /////点击已选择加蓝色边框
-        $("li#selected_list").click(function() {
-          var word = $(this).text();
-          word = $.trim(word);
-          var hass = false;
-          //alert(word);
-          $(this).each(function() {
-            console.log($(this).text());
-            if ($(this).text() == word) {
-              hass = true;
-            }
-          });
-        //   console.log('has', has);
-          if (!hass) {
-            $(this).addClass("ahover");
-          } else {
-             $(this).removeClass("ahover");
-          }
-        });
-
+        
         //传输文字并添加<a>标签
         $("li#user_list").click(function() {
           var word = $(this).text();
@@ -234,12 +215,12 @@
           $("li#user_list").each(function() { ////取消选中
             var name = $(".selected_user span").parent().text();
             if ($.trim($(".selected_user span").parent().text()) == name) {
-              $(".selected_user span").parent().children("a").remove();
+              $(".selected_user span").parents("li").remove();
             }
           });
         });
 
-        //取消选中、remove <a>标签
+        /////点击已选择加蓝色边框 //取消选中、remove <a>标签
         $(".selected_user").delegate("li", "click",
         function() {
           if ($(this).hasClass("ahover")==false) {
