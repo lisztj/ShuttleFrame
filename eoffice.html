@@ -42,7 +42,6 @@
           <script>new UISearch(document.getElementById('sb-search'));</script></ul>
         <div class="tab-content office_tabcontent">
           <div id="home2" class="tab-pane in active">
-           
             <!---选项卡内表格内容-->
             <a href="#userMeun" class="collapsed zx-bari" data-toggle="collapse">
               <i class="icon-chevron-up zx-baricon"></i>请选择部门</a>
@@ -112,7 +111,6 @@
       <!---eoffice右侧选择姓名-->
       <div class="eoffice_right">
         <div class="eoffice_right_bg">
-          
         </div>
        
         <div class="row">
@@ -167,14 +165,17 @@
     </div>
     <script src="assets/js/jquery-1.10.2.min.js"></script>
     <script src="assets/js/jquery.nicescroll.js"></script>
-    <script>//隐藏div中的滚动条
-      $(".user_list_main").niceScroll({
-        cursoropacitymax: 0,
-      });
-      $(".selected_user").niceScroll({
-        cursoropacitymax: 0,
-      });</script>
-    <script>$(document).ready(function() {
+<script>
+          //隐藏div中的滚动条
+          $(".user_list_main").niceScroll({
+                cursoropacitymax: 0,
+          });
+          $(".selected_user").niceScroll({
+                cursoropacitymax: 0,
+        });
+$(document).ready(function() {
+        $( ".selected_user" ).sortable();
+        $( ".selected_user" ).disableSelection();
         //user_list指向li同时给<a>添加hover
         $("li#user_list").mouseover(function() {
           $(this).find(".selected_tip").addClass("hover");
@@ -182,24 +183,20 @@
         $("li#user_list").mouseout(function() {
           $(this).find(".selected_tip").removeClass("hover");
         });
-
-      });</script>
-<script>
-$(document).ready(function() {
-		var selectedD=[];/////已选择数组
-		var selectedId=[];////已选择id数组
+        var selectedD=[];/////已选择数组
+        var selectedId=[];////已选择id数组
         //传输文字并添加<a>标签
         $("li#user_list").click(function() {
           var word = $(this).text();
           word = $.trim(word);
           var has = false;
-		  //alert(word);
-		  console.log($(this).data("tid"));
-			selectedId.push($(this).data("tid"));
-			selectedD.push({
-				id:$(this).data("tid"),
-				text:word
-			})
+        //alert(word);
+        console.log($(this).data("tid"));
+        selectedId.push($(this).data("tid"));
+        selectedD.push({
+          id:$(this).data("tid"),
+          text:word
+        })
 
           $(".selected_user li").each(function() {
             
@@ -214,23 +211,22 @@ $(document).ready(function() {
             $(this).prepend("<a class='selected_tip hover' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
           } else {
             $(this).children("a").remove();
-          }
+          };
         });
         ////取消选中
         $(".selected_user").delegate("span", "click",function() {
-      var id = $(this).parent().data("tid");
-			console.log('id', id);
-			$(".selected_user li").each(function(index,item) {////删除已选择
-            if ($(this).data("tid") == id) {
-              ////删除指定下标数据
-             selectedId.splice(index,1);
-              console.log('selectedId', selectedId)
-              $(this).remove();
-            }
-		  });
+          var id = $(this).parent().data("tid");
+          console.log('id', id);
+          $(".selected_user li").each(function(index,item) {////删除已选择
+                if ($(this).data("tid") == id) {
+                  ////删除指定下标数据
+                selectedId.splice(index,1);
+                  console.log('selectedId', selectedId)
+                  $(this).remove();
+                }
+          });
 		
           $("li#user_list").each(function() { ////去掉未选中勾
-			// console.log('tid', $.trim($(this)))
             if ($.trim($(this).data("tid")) == id) {
               $(this).children("a").remove();
             }
@@ -238,9 +234,8 @@ $(document).ready(function() {
         });
 
         /////点击已选择加蓝色边框 //取消选中、remove <a>标签
-        $(".selected_user").delegate("li", "click",
-        function() {
-			console.log('选中',$(this).text());
+        $(".selected_user").delegate("li", "click",function() {
+			    console.log('选中',$(this).text());
           if ($(this).hasClass("ahover")==false) {
             $(this).addClass("ahover");
           } else {
@@ -285,8 +280,8 @@ $(document).ready(function() {
     <script src="assets/js/jquery-ui-1.10.3.full.min.js"></script>
     <!-- page specific plugin scripts -->
     <!-- ace scripts -->
-    <script type="text/javascript">jQuery(function($) {
-
+    <script type="text/javascript">
+    jQuery(function($) {
         ////自动填充搜索custom autocomplete (category selection)
         $.widget("custom.catcomplete", $.ui.autocomplete, {
           _renderMenu: function(ul, items) {
@@ -302,7 +297,7 @@ $(document).ready(function() {
             });
           }
         });
-		////自动填充搜索---假数据
+		    ////自动填充搜索---假数据
         var data = [{
           label: "财务部",
           category: "部门"
@@ -343,8 +338,8 @@ $(document).ready(function() {
           delay: 0,
           source: data
         });
-
-      });</script>
+});
+</script>
   </body>
 
 </html>
