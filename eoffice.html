@@ -247,7 +247,7 @@ $(document).ready(function() {
           }
         });
 
-        //全选、清空
+        ////全选
         $(".allselect").click(function() {
           $(".selected_user").children("li").remove();
           $("li#user_list").children("a").remove();
@@ -257,6 +257,9 @@ $(document).ready(function() {
           });
         });
         $(".allclear").click(function() {
+          /////数据清空
+          selectedD=[];
+          selectedId=[];
           $(".selected_user").children("li").remove();
           $("li#user_list").children("a").remove();
 		});
@@ -265,8 +268,7 @@ $(document).ready(function() {
 		$("#zx-post").click(function () {
 			console.log('已选择:',selectedD);
 			// console.info('已选择:',$(".selected_user span").parent().text())
-			
-			alert(selectedId);
+			alert("已选择:" + selectedId);
 		});
       });</script>
     <!-- <![endif]-->
