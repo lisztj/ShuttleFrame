@@ -217,13 +217,14 @@ $(document).ready(function() {
           }
         });
         ////取消选中
-        $(".selected_user").delegate("span", "click",
-        function() {
-			
-		var id = $(this).parent().data("tid");
+        $(".selected_user").delegate("span", "click",function() {
+      var id = $(this).parent().data("tid");
 			console.log('id', id);
-			$(".selected_user li").each(function() {////删除已选择
+			$(".selected_user li").each(function(index,item) {////删除已选择
             if ($(this).data("tid") == id) {
+              ////删除指定下标数据
+             selectedId.splice(index,1);
+              console.log('selectedId', selectedId)
               $(this).remove();
             }
 		  });
@@ -251,8 +252,11 @@ $(document).ready(function() {
         $(".allselect").click(function() {
           $(".selected_user").children("li").remove();
           $("li#user_list").children("a").remove();
+          
           $("li#user_list").each(function() {
-            $(".selected_user").append("<li>" + $.trim($(this).text()) + "<span class='shanchu'><i class='icon-close'></i></span></li>");
+            ////全选数据
+            selectedId.push($(this).data("tid"));
+            $(".selected_user").append("<li id='selected_list'"+ "data-tid=" + "'" + $(this).data('tid') + "'" + " >"+ $.trim($(this).text()) + "<span class='shanchu'><i class='icon-close'></i></span></li>");
             $(this).prepend("<a class='selected_tip' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
           });
         });
