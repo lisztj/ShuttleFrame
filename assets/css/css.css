@@ -57,6 +57,8 @@ li{list-style-type:none;}
 .btn-gray{width:50px; height:30px; font-size:12px; padding:7px 12px; background:#888; color:#fff;}
 .btn-gray:hover{color:#fff; background:#747474;}
 .btn-gray:focus{color:#fff;}
+/* 拖动排序占位符 */
+/* .ui-state-highlight { height: 1.5em; line-height: 1.2em; border: 1px dotted #dfdfdf;} */
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
     border-radius: 0!important;
     color: #858585;

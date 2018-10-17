@@ -167,17 +167,27 @@
     <script src="assets/js/jquery.nicescroll.js"></script>
 <script>
           //隐藏div中的滚动条
-          $(".user_list_main").niceScroll({
+        $(".user_list_main").niceScroll({
                 cursoropacitymax: 0,
-          });
-          $(".selected_user").niceScroll({
+        });
+        $(".selected_user").niceScroll({
                 cursoropacitymax: 0,
         });
       $(document).ready(function() {
         ////拖动排序
+         var itemid="";
+        
         $( ".selected_user" ).sortable({
+          // placeholder: "ui-state-highlight",/////拖动占位符
           update: function( event, ui ) {
-            console.log(ui);
+          itemid = ui.item.data("tid");////当前拖动数据id
+          console.log('当前拖动元素',itemid);
+          var itemData=[];////排序后数组
+          $(".selected_user li").each(function() {
+            itemData.push($(this).data("tid"));
+          });
+          console.log('排序后数组', itemData);
+          selectedId=itemData;////排序后数组赋值
           }
         });
         $( ".selected_user" ).disableSelection();
