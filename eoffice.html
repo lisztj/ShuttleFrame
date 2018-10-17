@@ -173,8 +173,13 @@
           $(".selected_user").niceScroll({
                 cursoropacitymax: 0,
         });
-$(document).ready(function() {
-        $( ".selected_user" ).sortable();
+      $(document).ready(function() {
+        ////拖动排序
+        $( ".selected_user" ).sortable({
+          update: function( event, ui ) {
+            console.log(ui);
+          }
+        });
         $( ".selected_user" ).disableSelection();
         //user_list指向li同时给<a>添加hover
         $("li#user_list").mouseover(function() {
@@ -196,16 +201,15 @@ $(document).ready(function() {
         selectedD.push({
           id:$(this).data("tid"),
           text:word
-        })
+        });
 
           $(".selected_user li").each(function() {
-            
             if ($(this).text() == word) {
               has = true;
               $(this).remove();
             }
           });
-        //   console.log('has', has);
+          //console.log('has', has);
           if (!has) {
             $(".selected_user").append("<li id='selected_list'"+ "data-tid=" + "'" + $(this).data('tid') + "'" + " >" + word + "<span class='shanchu'><i class='icon-close'></i></span></li>");
             $(this).prepend("<a class='selected_tip hover' href='javascript:void(0)'><i class='icon-check-circle'></i></a> ");
@@ -278,8 +282,6 @@ $(document).ready(function() {
 	<!-- //自动补全 -->
     <script src="assets/js/typeahead-bs2.min.js"></script>
     <script src="assets/js/jquery-ui-1.10.3.full.min.js"></script>
-    <!-- page specific plugin scripts -->
-    <!-- ace scripts -->
     <script type="text/javascript">
     jQuery(function($) {
         ////自动填充搜索custom autocomplete (category selection)
