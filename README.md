@@ -1,6 +1,6 @@
 # ShuttleFrame
 部门人员选择
-树形组件可直接采用zTree
+> 树形组件可直接采用zTree
 
 ![Image](zTreefm.gif)
 
